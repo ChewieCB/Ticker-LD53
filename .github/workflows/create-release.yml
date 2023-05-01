@@ -20,7 +20,8 @@ jobs:
           godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
           relative_project_path: ./
           archive_output: true
-            - name: Bump version and push tag
+      - name: Bump version and push tag
+	id: bump_tag
         uses: anothrNick/github-tag-action@1.61.0 # Don't use @master unless you're happy to test the latest version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,5 +31,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
-          tag: latest
+          tag: ${{ steps.bump_tag.outputs.tag }}
           artifacts: ${{ steps.export.outputs.archive_directory }}/*
