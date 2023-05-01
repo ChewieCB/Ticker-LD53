@@ -18,6 +18,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: create game release
+	id: export
         # Use latest version (see releases for all versions)
         uses: firebelley/godot-export@v5.1.0
         with:
