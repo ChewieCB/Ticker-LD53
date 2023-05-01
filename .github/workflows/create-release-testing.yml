@@ -46,7 +46,7 @@ jobs:
         id: download-html
         uses: dsaltares/fetch-gh-release-asset@master
         with:
-          version: latest
+          version: tags/testing-v${{ env.RELEASE_VERSION }}
           file: ticker-html.zip
           token: ${{ secrets.GH_CREDENTIALS }}
       - name: deploy to itch.io (HTML5)
