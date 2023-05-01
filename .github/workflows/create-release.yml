@@ -21,8 +21,8 @@ jobs:
           relative_project_path: ./
           archive_output: true
       - name: Bump version and push tag
-	id: bump_tag
-        uses: anothrNick/github-tag-action@1.61.0 # Don't use @master unless you're happy to test the latest version
+        id: bump_tag
+        uses: anothrNick/github-tag-action@1.61.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
