@@ -33,7 +33,7 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
   release_testing_html:
     runs-on: ubuntu-latest
-    if: 
+    needs: export_game
     steps:
       - name: download HTML5
         id: download-html
