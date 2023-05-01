@@ -21,16 +21,19 @@ jobs:
           relative_project_path: ./
           archive_output: true
       - name: Bump version and push tag
+	id: bump_tag
         uses: anothrNick/github-tag-action@1.61.0 # Don't use @master unless you're happy to test the latest version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
+	  PRERELEASE: true
+	  PRERELEASE_SUFFIX: testing
       - name: create release
         uses: ncipollo/release-action@v1.12.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
-          tag: testing-v${{ env.RELEASE_VERSION }}
+          tag: ${{ steps.bump_tag.outputs.tag }}
           artifacts: ${{ steps.export.outputs.archive_directory }}/*
   release_testing_html:
     runs-on: ubuntu-latest
