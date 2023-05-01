@@ -1,9 +1,11 @@
 on:
-  release:
-    types: [published]
+  pull_request:
+    branches: 
+      - integration
+    types: [closed]
 
 jobs:
-  release_html:
+  release_testing_html:
     runs-on: ubuntu-latest
     steps:
       - name: download HTML5
@@ -18,7 +20,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: html
-          ITCH_GAME: ticker
+          ITCH_GAME: ticker-tb
           ITCH_USER: chewiecb
           PACKAGE: ticker-html.zip
           VERSION: ${{ steps.download-html.outputs.version }}
