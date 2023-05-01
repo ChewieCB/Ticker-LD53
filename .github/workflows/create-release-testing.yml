@@ -25,7 +25,7 @@ jobs:
         with:
           token: ${{ secrets.GH_CREDENTIALS }}
           generateReleaseNotes: true
-          tag: ${{ github.ref_name }}
+          tag: v-${{ github.sha }}
           artifacts: ${{ steps.export.outputs.archive_directory }}/*
   release_testing_html:
     runs-on: ubuntu-latest
