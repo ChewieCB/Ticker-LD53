@@ -20,10 +20,21 @@ jobs:
           godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
           relative_project_path: ./
           archive_output: true
+      - name: Create an incremental release
+        uses: aurestic/incrementarl-create-release@master
+        with:
+          flag_branch: true
+          message: Bump version
+          prev_tag: 'v'
+          update_odoo_module_version: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: create release
         uses: ncipollo/release-action@v1.12.0
         with:
-          token: ${{ secrets.GH_CREDENTIALS }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
-          tag: v-${{ github.sha }}
+          tag: v${{ env.RELEASE_VERSION }}
           artifacts: ${{ steps.export.outputs.archive_directory }}/*
