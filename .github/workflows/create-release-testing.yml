@@ -73,8 +73,8 @@ jobs:
         with:
           severity: warn
           username: BuildBot
-          description: ${{ steps.get-tagged-release.outputs.body }}
+          description: '${{ steps.get-tagged-release.outputs.body }}\n' 
           details: '__This is a pre-release build and may be unstable__'
           footer: ${{ needs.export_game.outputs.tag }}
-          text: A new testing build is available at https://chewiecb.itch.io/ticker-tb
+          text: A new __testing__ build is available at https://chewiecb.itch.io/ticker-tb
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
