@@ -71,7 +71,7 @@ jobs:
         with:
           severity: info
           username: BuildBot
-          description: '${{ steps.get-tagged-release.outputs.body }}\n' 
+          description: '${{ steps.get-tagged-release.outputs.body }}' 
           footer: ${{ needs.export_game.outputs.tag }}
           text: A new build is available at https://chewiecb.itch.io/ticker
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
