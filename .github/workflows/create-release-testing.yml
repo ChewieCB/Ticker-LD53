@@ -61,7 +61,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [export_game, release_testing_html]
     steps:
-      - name: get-tagged-release
+      - name: get tagged release
+        id: get-tagged-release
         uses: cardinalby/git-get-release-action@v1
         env:
           GITHUB_TOKEN: ${{ github.token }}
