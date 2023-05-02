@@ -61,12 +61,18 @@ jobs:
     runs-on: ubuntu-latest
     needs: [export_game, release_testing_html]
     steps:
+      - name: get-tagged-release
+        uses: cardinalby/git-get-release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          with:
+            tag: '${{needs.export_game.outputs.tag}}'
       - name: notify discord
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: warn
           username: BuildBot
-          description: ${{ github.event.head_commit.message }}
+          description: ${{ steps.get-tagged-release.outputs.body }}
           details: '__This is a pre-release build and may be unstable__'
           footer: ${{needs.export_game.outputs.tag}}
           text: A new testing build is available at https://chewiecb.itch.io/ticker-tb
