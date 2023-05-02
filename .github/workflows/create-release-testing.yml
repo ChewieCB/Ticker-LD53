@@ -66,7 +66,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           with:
-            tag: '${{needs.export_game.outputs.tag}}'
+            tag: ${{ needs.export_game.outputs.tag }}
       - name: notify discord
         uses: rjstone/discord-webhook-notify@v1
         with:
@@ -74,6 +74,6 @@ jobs:
           username: BuildBot
           description: ${{ steps.get-tagged-release.outputs.body }}
           details: '__This is a pre-release build and may be unstable__'
-          footer: ${{needs.export_game.outputs.tag}}
+          footer: ${{ needs.export_game.outputs.tag }}
           text: A new testing build is available at https://chewiecb.itch.io/ticker-tb
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
