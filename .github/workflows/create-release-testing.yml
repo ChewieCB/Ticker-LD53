@@ -65,8 +65,8 @@ jobs:
         uses: cardinalby/git-get-release-action@v1
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          with:
-            tag: ${{ needs.export_game.outputs.tag }}
+        with:
+          tag: ${{ needs.export_game.outputs.tag }}
       - name: notify discord
         uses: rjstone/discord-webhook-notify@v1
         with:
