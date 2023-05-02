@@ -64,9 +64,10 @@ jobs:
       - name: notify discord
         uses: rjstone/discord-webhook-notify@v1
         with:
-          severity: info
+          severity: warn
           username: BuildBot
-          details: '${{ github.event.head_commit.message }}'
+          description: ${{ github.event.release.body }}
+          details: '__This is a pre-release build and may be unstable__'
           footer: ${{needs.export_game.outputs.tag}}
-          text: A new build is available
+          text: A new testing build is available
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
