@@ -3,12 +3,12 @@ extends MoveState
 
 func enter() -> void:
 	super.enter()
-#	GlobalFlags.IS_PLAYER_CONTROLLABLE = false
-#	# Wait a bit and turn the engine back on
-#	await get_tree().create_timer(0.6).timeout
-#	# Hackity hack hack
-#	if not GlobalFlags.IS_GAME_OVER:
-#		GlobalFlags.IS_PLAYER_CONTROLLABLE = true
+	GlobalFlags.IS_PLAYER_CONTROLLABLE = false
+	# Wait a bit and turn the engine back on
+	await get_tree().create_timer(0.6).timeout
+	# Hackity hack hack
+	if not GlobalFlags.IS_GAME_OVER:
+		GlobalFlags.IS_PLAYER_CONTROLLABLE = true
 
 
 func physics_process(delta: float) -> BaseState:

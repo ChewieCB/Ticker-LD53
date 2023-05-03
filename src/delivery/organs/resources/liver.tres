@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Organ" load_steps=3 format=3 uid="uid://d4nl7qnkj8bq2"]
+
+[ext_resource type="Texture2D" uid="uid://b4noqg61ylr81" path="res://src/delivery/organs/icons/liver.png" id="1_ga006"]
+[ext_resource type="Script" path="res://src/delivery/organs/organ.gd" id="1_j7opk"]
+
+[resource]
+script = ExtResource("1_j7opk")
+name = "Liver"
+icon = ExtResource("1_ga006")
+fragility = 1.0
+default_degredation_rate = 0.0
+successful_delivery_text = Array[String](["Thanks. If you’ll excuse me, I need a drink.", "What’s all this scarring on the liver?", "You know if you take part of the liver out, it’ll regenerate? There’s eight people walking around with livers from me!", "Did you know the liver is the next biggest organ after the skin?"])
+successful_low_quality_delivery_text = Array[String]([])
+failed_damaged_delivery_text = Array[String]([])
+failed_timeout_delivery_text = Array[String]([])

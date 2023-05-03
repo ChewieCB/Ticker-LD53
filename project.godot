@@ -14,6 +14,10 @@ config/name="Ticker"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalFlags="*res://src/utils/globals/GlobalFlags.gd"
+
 [input]
 
 quit={

@@ -1,0 +1,99 @@
+{
+   "Heart": [
+      {
+         "Text": "Wow, a new ticker!"
+      },
+      {
+         "Text": "This’ll help with the cholesterol levels."
+      },
+      {
+         "Text": "With two of these I’ll be way faster!"
+      },
+      {
+         "Text": "Who’s heartless now, Vinny!"
+      }
+   ],
+   "Lung": [
+      {
+         "Text": "Now Dad can breathe easy. Heh heh. Get it?"
+      },
+      {
+         "Text": "I hope I can make the repayments on this..."
+      },
+      {
+         "Text": "Thanks, the air here is filthy! When will they replace the filtration systems?"
+      },
+      {
+         "Text": "Damn Flux! Cos I have a Flux heart I had to get a Flux lung too!"
+      }
+   ],
+   "Kidney": [
+      {
+         "Text": "Excellent, I’ll lease this one to some splicer."
+      },
+      {
+         "Text": "I never realised how bean-shaped these were."
+      },
+      {
+         "Text": "Phew! I rented both of mine out."
+      },
+      {
+         "Text": "Goodbye dialysis! "
+      }
+   ],
+   "Liver": [
+      {
+         "Text": "Thanks. If you’ll excuse me, I need a drink."
+      },
+      {
+         "Text": "What’s all this scarring on the liver?"
+      },
+      {
+         "Text": "You know if you take part of the liver out, it’ll regenerate? There’s eight people walking around with livers from me!"
+      },
+      {
+         "Text": "Did you know the liver is the next biggest organ after the skin?"
+      }
+   ],
+   "Brain": [
+      {
+         "Text": "Brain... need brain... think hurt..."
+      },
+      {
+         "Text": "Hrrrmm grnnn arghh"
+      },
+      {
+         "Text": "(Drooling)"
+      },
+      {
+         "Text": "Thanks, Mum's dementia is getting pretty bad."
+      }
+   ],
+   "Intestines": [
+      {
+         "Text": "How do they pack it down so tight?"
+      },
+      {
+         "Text": "Eww. This still has food inside it…"
+      },
+      {
+         "Text": "Wow, I could play jump rope with this!"
+      }
+   ],
+   "Eyes": [
+      {
+         "Text": "I can see clearly now!"
+      },
+      {
+         "Text": "Brown? I wanted green. Oh, well."
+      }
+   ],
+   "Skin": [
+      {
+         "Text": "Oh, it’s all in a big mushy pile. Lovely."
+      },
+      {
+         "Text": "I thought it’d be folded--you know, like a fitted sheet."
+      }
+   ]
+}

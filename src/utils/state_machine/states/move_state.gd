@@ -69,9 +69,7 @@ func input(event: InputEvent) -> BaseState:
 	if Input.is_action_pressed("quit"):
 		get_tree().quit()
 	elif Input.is_action_just_pressed("kill_engine"):
-		pass
-		# TODO
-#		GlobalFlags.IS_PLAYER_CONTROLLABLE = !GlobalFlags.IS_PLAYER_CONTROLLABLE
+		GlobalFlags.IS_PLAYER_CONTROLLABLE = !GlobalFlags.IS_PLAYER_CONTROLLABLE
 	return null
 
 
@@ -84,39 +82,17 @@ func physics_process(delta: float) -> BaseState:
 	
 	# Rotate to move up instead of right
 	actor.velocity += acceleration * delta
-	actor.move_and_slide()
 	
-	# TODO - refactor crashing
 #	# If we're going fast, bounce off the wall
 #	if actor.velocity.length() > bounce_speed:
 #		var collision = actor.move_and_collide(actor.velocity * delta)
 #		if collision:
 #			# Turn off the engine for a second
-#			actor.velocity = actor.velocity.bounce(collision.normal) * 0.6
-#			return crashing_state
+#			actor.velocity = actor.velocity.bounce(collision.get_normal()) * 0.6
+#			return crash_state
 #	else:
-#		actor.move_and_slide()
-#
-#	var collision = actor.move_and_collide(actor.velocity * delta)
-#	if collision:
-#		# If we're going fast, bounce off the wall
-#		if actor.velocity.length() > bounce_speed:
-#			# Turn off the engine for a second
-#			actor.velocity = actor.velocity.bounce(collision.normal) * 0.6
-#			return crashing_state
-#		else:
-#			actor.velocity = actor.velocity.slide(collision.normal)
-#
-#	# State handling
-#	if input_vector.y > 0:
-#		acceleration = actor.transform.x * engine_power
-#		return accelerate_state
-#	if input_vector.y < 0:
-#		acceleration = actor.transform.x * braking_power
-#		if actor.velocity.length() > 0:
-#			return braking_state
-#		else:
-#			return reverse_state
+#		# Otherwise move normally
+	actor.move_and_slide()
 	
 	return null
 
