@@ -1,8 +1,8 @@
 extends Resource
 class_name Delivery
 
-var pickup_location: Vector2
-var drop_off_location: Vector2
+var pickup_location: DeliveryZone
+var drop_off_location: DeliveryZone
 var organ: Organ
 var organ_starting_quality: float
 var current_organ_quality: float :
@@ -15,7 +15,7 @@ var recipient: Recipient
 
 
 func _init(
-		p_pickup_location = Vector2(), p_drop_off_location = Vector2(), p_organ = null, 
+		p_pickup_location = null, p_drop_off_location = null, p_organ = null, 
 		p_organ_starting_quality = 1.0, p_organ_goal_quality = 0.5, p_organ_degredation_rate = 0.0,
 		p_reward = 0, p_recipient = null
 	):
@@ -30,6 +30,7 @@ func _init(
 
 
 func start_delivery() -> void:
+	drop_off_location.is_active = true
 	current_organ_quality = organ_starting_quality
 	# TODO - tick down organ quality
 	pass

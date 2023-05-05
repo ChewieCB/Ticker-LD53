@@ -12,14 +12,14 @@ class_name Organ
 @export var fragility: float = 1.0
 @export var default_degredation_rate: float = 0.0
 @export_group("Delivery Dialogue")
-@export var successful_delivery_text: Array[String] = []
-@export var successful_low_quality_delivery_text: Array[String] = []
-@export var failed_damaged_delivery_text: Array[String] = []
-@export var failed_timeout_delivery_text: Array[String] = []
+@export var successful_delivery_text: Array = []
+@export var successful_low_quality_delivery_text: Array = []
+@export var failed_damaged_delivery_text: Array = []
+@export var failed_timeout_delivery_text: Array = []
 
 
 func _init(
-		p_name=null, p_icon=null, 
+		p_name="", p_icon=null, 
 		p_fragility=1.0, p_default_degredation_rate=0.0,
 		p_successful_delivery_text=[], p_successful_low_quality_delivery_text=[],
 		p_failed_damaged_delivery_text=[], p_failed_timeout_delivery_text=[]
