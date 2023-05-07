@@ -65,7 +65,7 @@ func new_delivery(pickup_zone: DeliveryZone = null) -> void:
 	var _recipient = next_recipient()
 #	var _pickup_location = next_zone()
 	var delivery = generate_delivery(pickup_location, _organ, _recipient)
-	print("\n==== New Delivery: " + str(delivery) + " ====")
+	print("\n----> New Delivery: " + str(delivery))
 	print(str(_organ.name) + " for " + str(_recipient.name))
 	update_delivery_queue(delivery)
 
@@ -78,13 +78,14 @@ func complete_delivery(last_zone: DeliveryZone) -> void:
 	last_used_recipient = delivery.recipient
 	last_used_delivery_zone = delivery.drop_off_location
 	# Get a new pickup location
-	next_pickup().is_active = true
+	var new_pickup = next_pickup()
+	new_pickup.is_active = true
+	print("\n----> New Pickup: " + str(new_pickup) + " <----")
 
 
 func update_delivery_queue(new_delivery) -> void:
 	delivery_queue.push_back(new_delivery)
-	print("Queue:" + str(delivery_queue))
-	print("================================================")
+	print("Queue:" + str(delivery_queue) + " <----")
 	# If the new delivery is first in the queue, start it
 	if delivery_queue.find(new_delivery) == 0:
 		new_delivery.start_delivery()

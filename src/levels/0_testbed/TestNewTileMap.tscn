@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4d5kupxp7vyu"]
+[gd_scene load_steps=6 format=3 uid="uid://b4d5kupxp7vyu"]
 
 [ext_resource type="PackedScene" uid="uid://dn8wk27olp27r" path="res://src/player/Player.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://db6ljx78d1ckb" path="res://src/delivery/DeliveryManager.tscn" id="1_j8q0j"]
 [ext_resource type="PackedScene" uid="uid://cy78p0fc6gld8" path="res://src/delivery/delivery_zones/DeliveryZone.tscn" id="1_o5dk7"]
+[ext_resource type="PackedScene" uid="uid://dtmax7d1xvse5" path="res://src/ui/main_ui/MainUI.tscn" id="5_ya167"]
 [ext_resource type="TileSet" uid="uid://bvolwhnham3qr" path="res://src/levels/0_testbed/station_tilemap.tres" id="7"]
 
 [node name="TestNewTileMap" type="Node2D"]
@@ -62,4 +63,6 @@ layer_0/tile_data = PackedInt32Array(-196616, 65538, 3, -196615, 131074, 3, -196
 
 [node name="DeliveryManager" parent="." instance=ExtResource("1_j8q0j")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MainUI" parent="UI" instance=ExtResource("5_ya167")]
