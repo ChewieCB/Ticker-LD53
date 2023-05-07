@@ -68,6 +68,8 @@ func new_delivery(pickup_zone: DeliveryZone = null) -> void:
 	print("\n----> New Delivery: " + str(delivery))
 	print(str(_organ.name) + " for " + str(_recipient.name))
 	update_delivery_queue(delivery)
+	#
+	get_tree().call_group("ui/organ", "set_delivery", delivery)
 
 
 func complete_delivery(last_zone: DeliveryZone) -> void:
@@ -84,6 +86,8 @@ func complete_delivery(last_zone: DeliveryZone) -> void:
 	var new_pickup = next_pickup()
 	new_pickup.is_active = true
 	print("\n----> New Pickup: " + str(new_pickup) + " <----")
+	#
+	get_tree().call_group("ui/organ", "hide_status")
 
 
 func update_delivery_queue(new_delivery) -> void:
