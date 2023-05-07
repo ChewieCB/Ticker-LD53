@@ -8,6 +8,7 @@ enum DIALOG_TYPE {INFO, SUCCESS, FAIL}
 @onready var title_text = $TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer/TitleContainer/TitleText
 @onready var sub_title_text = $TextBox/VBoxContainer/HeadContainer/VBoxContainer/SubTitleContainer/SubTitleTextContainer/SubTitleText
 @onready var body_text = $TextBox/VBoxContainer/Body/VBoxContainer/BodyContainer/BodyText
+@onready var animation_player = $AnimationPlayer
 
 var dialog = Dialog:
 	set = set_dialog
@@ -65,3 +66,13 @@ func set_dialog(value):
 	title_text.text = generate_title_text(dialog)
 	sub_title_text.text = generate_sub_title_text(dialog)
 	body_text.text = dialog.body_text
+	# Animate the dialog box
+	animation_player.play("show_dialog")
+	await animation_player.animation_finished
+	await get_tree().create_timer(1.0).timeout
+	hide_dialog()
+
+
+func hide_dialog():
+	# Animate the dialog box
+	animation_player.play("hide_dialog")

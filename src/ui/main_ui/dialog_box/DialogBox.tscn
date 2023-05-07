@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://p1io2m7nt5i5"]
+[gd_scene load_steps=13 format=3 uid="uid://p1io2m7nt5i5"]
 
 [ext_resource type="Script" path="res://src/ui/main_ui/dialog_box/dialog_box.gd" id="1_48lrq"]
 [ext_resource type="FontFile" uid="uid://dl68xvod3xq1g" path="res://assets/fonts/Robtronika-Regular.ttf" id="2_i3et5"]
@@ -8,6 +8,304 @@
 [ext_resource type="Texture2D" uid="uid://bo1wr4catq86a" path="res://src/ui/main_ui/dialog_box/sprites/frame/sub_heading_frame.png" id="5_oawoj"]
 [ext_resource type="Texture2D" uid="uid://cvmi2pbt6noc2" path="res://src/ui/main_ui/dialog_box/sprites/decoration/frame_dec_1.png" id="7_6r7hs"]
 [ext_resource type="Texture2D" uid="uid://c1roxbenis0y7" path="res://src/ui/main_ui/dialog_box/sprites/icons/complete.png" id="7_8bwcj"]
+
+[sub_resource type="Animation" id="Animation_cldca"]
+resource_name = "show_dialog"
+length = 1.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.615572, 1),
+"update": 0,
+"values": [Vector2(200, 164), Vector2(346, 164)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portrait:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.615, 1),
+"update": 0,
+"values": [Vector2(144, 136), Vector2(290, 136)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer/TitleContainer:theme_override_constants/margin_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [24, 4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer/TitleContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer/Icon:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBox/VBoxContainer/HeadContainer/VBoxContainer/SubTitleContainer:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextBox/VBoxContainer/Body/VBoxContainer/SeparatorContainer:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextBox/VBoxContainer/Body/VBoxContainer/BodyContainer/BodyText:visible_characters")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.7, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 80]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TextBox/VBoxContainer/HeadContainer/VBoxContainer/SubTitleContainer:theme_override_constants/margin_top")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.45, 0.65),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [20, 0]
+}
+
+[sub_resource type="Animation" id="Animation_tpsuh"]
+resource_name = "default"
+length = 1.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.615572),
+"update": 0,
+"values": [Vector2(200, 164)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portrait:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.615),
+"update": 0,
+"values": [Vector2(144, 136)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer/TitleContainer:theme_override_constants/margin_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer/TitleContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer/Icon:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBox/VBoxContainer/HeadContainer/VBoxContainer/SubTitleContainer:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextBox/VBoxContainer/Body/VBoxContainer/SeparatorContainer:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextBox/VBoxContainer/Body/VBoxContainer/BodyContainer/BodyText:visible_characters")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TextBox/VBoxContainer/HeadContainer/VBoxContainer/SubTitleContainer:theme_override_constants/margin_top")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_axxsu"]
+resource_name = "hide_dialog"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(346, 164), Vector2(200, 164)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portrait:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(290, 136), Vector2(144, 136)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 4),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_36e7m"]
+_data = {
+"default": SubResource("Animation_tpsuh"),
+"hide_dialog": SubResource("Animation_axxsu"),
+"show_dialog": SubResource("Animation_cldca")
+}
 
 [node name="Dialog" type="Control"]
 layout_mode = 3
@@ -62,6 +360,8 @@ layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("7_8bwcj")
 
 [node name="TitleContainer" type="MarginContainer" parent="TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer"]
@@ -84,6 +384,8 @@ scroll_active = false
 custom_minimum_size = Vector2(0, 88)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 128
 theme_override_constants/margin_bottom = 38
 
@@ -153,6 +455,8 @@ theme_override_font_sizes/italics_font_size = 16
 bbcode_enabled = true
 text = "Did you know the liver is the next biggest organ after the skin?"
 scroll_active = false
+visible_characters = 80
+visible_ratio = 1.25
 
 [node name="Portrait" type="TextureRect" parent="."]
 texture_filter = 1
@@ -163,3 +467,9 @@ offset_right = 419.0
 offset_bottom = 264.0
 size_flags_horizontal = 3
 texture = ExtResource("4_7hxia")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_36e7m")
+}
