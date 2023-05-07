@@ -10,13 +10,11 @@ enum DIALOG_TYPE {INFO, SUCCESS, FAIL}
 @onready var body_text = $TextBox/VBoxContainer/Body/VBoxContainer/BodyContainer/BodyText
 
 var dialog = Dialog:
-	set(value):
-		dialog = value
-		portrait = dialog.portrait
-		# TODO - icon
-		title_text.text = generate_title_text(dialog)
-		sub_title_text.text = generate_sub_title_text(dialog)
-		body_text.text = dialog.body_text
+	set = set_dialog
+
+
+func _ready():
+	add_to_group("ui/dialog")
 
 
 func generate_title_text(dialog) -> String:
@@ -25,7 +23,7 @@ func generate_title_text(dialog) -> String:
 		DIALOG_TYPE.INFO:
 			title_text_string = "[color=yellow]Incoming Message[/color]"
 		DIALOG_TYPE.SUCCESS:
-			title_text_string = "Delivery [color=green]Completed[/color]"
+			title_text_string = "Delivery [color=green]Complete[/color]"
 		DIALOG_TYPE.FAIL:
 			title_text_string = "Delivery [color=red]Failed[/color]"
 	return title_text_string
@@ -38,21 +36,32 @@ func generate_sub_title_text(dialog) -> String:
 			sub_title_text_string = "[color=yellow]Incoming Message[/color]"
 		DIALOG_TYPE.SUCCESS:
 			var organ_color = get_organ_color(dialog.organ_quality, dialog.goal_organ_quality)
-			sub_title_text_string = "[i][color={organ_color}]{organ_quality}%[/color] quality\n[color=yellow]$327[/color] reward[/i]".format(
-				{"organ_color": organ_color, "organ_quality": dialog.organ_quality * 100}
+			sub_title_text_string = "[i][color={organ_color}]{organ_quality}%[/color] quality\n[color=yellow]${reward}[/color] reward[/i]".format(
+				{"organ_color": organ_color, "organ_quality": roundi(dialog.organ_quality * 100), "reward": dialog.reward}
 			)
 		DIALOG_TYPE.FAIL:
 			var organ_color = get_organ_color(dialog.organ_quality, dialog.goal_organ_quality)
-			sub_title_text_string = "[i][color={organ_color}]{organ_quality}%[/color] quality\n[color=yellow]$327[/color] reward[/i]".format(
-				{"organ_color": organ_color, "organ_quality": dialog.organ_quality * 100}
+			sub_title_text_string = "[i][color={organ_color}]{organ_quality}%[/color] quality\n[color=yellow]${reward}[/color] reward[/i]".format(
+				{"organ_color": organ_color, "organ_quality": roundi(dialog.organ_quality * 100), "reward": dialog.reward}
 			)
 	return sub_title_text_string
 
 
 func get_organ_color(organ_quality, goal_organ_quality):
-	if organ_quality <= 1.0 and organ_quality >= goal_organ_quality:
+	if organ_quality > 0.75:
 		return "green"
-	elif organ_quality < goal_organ_quality and organ_quality > goal_organ_quality - 25:
+	elif organ_quality < 0.75:
+		return "yellow"
+	elif organ_quality < 0.5 and organ_quality > 0.25:
 		return "orange"
 	else:
 		return "red"
+
+
+func set_dialog(value):
+	dialog = value
+	portrait.texture = dialog.portrait
+	# TODO - icon
+	title_text.text = generate_title_text(dialog)
+	sub_title_text.text = generate_sub_title_text(dialog)
+	body_text.text = dialog.body_text

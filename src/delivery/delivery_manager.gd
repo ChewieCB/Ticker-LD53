@@ -73,6 +73,9 @@ func new_delivery(pickup_zone: DeliveryZone = null) -> void:
 func complete_delivery(last_zone: DeliveryZone) -> void:
 	last_zone.is_active = false
 	var delivery = delivery_queue.pop_front()
+	# Update dialog UI
+	var completion_dialog = delivery.end_delivery()
+	get_tree().call_group("ui/dialog", "set_dialog", completion_dialog)
 	# Update last used values
 	last_used_organ = delivery.organ
 	last_used_recipient = delivery.recipient

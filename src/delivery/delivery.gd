@@ -36,9 +36,25 @@ func start_delivery() -> void:
 	pass
 
 
-func end_delivery() -> void:
-	# TODO
-	pass
+func end_delivery() -> Dialog:
+	randomize()
+	# Generate dialog
+	var dialog = Dialog.new()
+	dialog.portrait = recipient.portrait
+	if current_organ_quality > organ_goal_quality - 25:
+		dialog.type = Dialog.DIALOG_TYPE.SUCCESS
+	else:
+		dialog.type = Dialog.DIALOG_TYPE.FAIL
+	# TODO - factor these values in instead of randomising them
+	dialog.reward = randi_range(31, reward)
+	dialog.organ_quality = randf_range(0, 1)
+	dialog.goal_organ_quality = randf_range(0.6, 0.9)
+	# TODO - factor this text to depend on delivery quality/status
+	var possible_text = organ.successful_delivery_text
+	dialog.body_text = possible_text[randi_range(0, possible_text.size() - 1)]
+	
+	return dialog
+	# TODO - handle rewards
 
 
 func take_damage(amount: float):

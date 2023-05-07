@@ -70,6 +70,7 @@ size_flags_horizontal = 3
 theme_override_constants/margin_top = 4
 
 [node name="TitleText" type="RichTextLabel" parent="TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer/TitleContainer"]
+clip_contents = false
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_i3et5")
 theme_override_fonts/italics_font = ExtResource("4_qy10j")
