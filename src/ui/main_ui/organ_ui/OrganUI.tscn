@@ -4,34 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://80yao4blh6lp" path="res://src/ui/main_ui/dialog_box/sprites/frame/frame.png" id="1_f0kuc"]
 [ext_resource type="Texture2D" uid="uid://d506lp57dio3" path="res://src/delivery/organs/icons/brain.png" id="2_5sfv2"]
 
-[sub_resource type="Animation" id="Animation_1g8qp"]
-resource_name = "show_status"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer:theme_override_constants/margin_left")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.466516, 1),
-"update": 0,
-"values": [130, 0]
-}
-
 [sub_resource type="Animation" id="Animation_of6qp"]
 resource_name = "default"
 length = 0.1
@@ -88,6 +60,34 @@ tracks/1/keys = {
 "values": [0, 130]
 }
 
+[sub_resource type="Animation" id="Animation_1g8qp"]
+resource_name = "show_status"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:theme_override_constants/margin_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.466516, 1),
+"update": 0,
+"values": [130, 0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p1w3g"]
 _data = {
 "default": SubResource("Animation_of6qp"),
@@ -96,7 +96,6 @@ _data = {
 }
 
 [node name="OrganUI" type="Control"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -120,7 +119,7 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 130
+theme_override_constants/margin_left = 0
 
 [node name="Frame" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2

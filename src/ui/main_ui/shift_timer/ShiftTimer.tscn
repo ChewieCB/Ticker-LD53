@@ -1,0 +1,113 @@
+[gd_scene load_steps=6 format=3 uid="uid://cilam7g4von4s"]
+
+[ext_resource type="Texture2D" uid="uid://80yao4blh6lp" path="res://src/ui/main_ui/dialog_box/sprites/frame/frame.png" id="1_cc5mb"]
+[ext_resource type="FontFile" uid="uid://dl68xvod3xq1g" path="res://assets/fonts/Robtronika-Regular.ttf" id="1_se1sc"]
+[ext_resource type="Script" path="res://src/ui/main_ui/shift_timer/shift_timer.gd" id="1_y4md7"]
+[ext_resource type="Texture2D" uid="uid://c1roxbenis0y7" path="res://src/ui/main_ui/dialog_box/sprites/icons/complete.png" id="2_8l5u5"]
+[ext_resource type="Texture2D" uid="uid://dvepgdh8vloxc" path="res://src/ui/layout/dialog_box.png" id="4_epcm5"]
+
+[node name="ShiftTimer" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_y4md7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = -45.5
+offset_right = 136.5
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Frame" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_cc5mb")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+
+[node name="TimerTextContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IconContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/TimerTextContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = -12
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/TimerTextContainer/IconContainer"]
+layout_mode = 2
+texture = ExtResource("2_8l5u5")
+
+[node name="TextContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/TimerTextContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 8
+
+[node name="TimerText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/TimerTextContainer/TextContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_se1sc")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[center]Shift Remaining[/center]"
+scroll_active = false
+
+[node name="TimerTimeContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = -8
+theme_override_constants/margin_bottom = 16
+
+[node name="TimerFrameContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TimerTimeContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 72
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 72
+theme_override_constants/margin_bottom = 0
+
+[node name="TimerFrame" type="TextureRect" parent="MarginContainer/VBoxContainer/TimerTimeContainer/TimerFrameContainer"]
+layout_mode = 2
+texture = ExtResource("4_epcm5")
+
+[node name="TimeContainter" type="MarginContainer" parent="MarginContainer/VBoxContainer/TimerTimeContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="Time" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TimerTimeContainer/TimeContainter"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_se1sc")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]0:00[/center]"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

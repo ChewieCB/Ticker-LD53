@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtmax7d1xvse5"]
+[gd_scene load_steps=4 format=3 uid="uid://dtmax7d1xvse5"]
 
 [ext_resource type="PackedScene" uid="uid://p1io2m7nt5i5" path="res://src/ui/main_ui/dialog_box/DialogBox.tscn" id="1_a41cl"]
+[ext_resource type="PackedScene" uid="uid://cilam7g4von4s" path="res://src/ui/main_ui/shift_timer/ShiftTimer.tscn" id="1_w4h73"]
 [ext_resource type="PackedScene" uid="uid://dnrg586wt1f35" path="res://src/ui/main_ui/organ_ui/OrganUI.tscn" id="2_fosbo"]
 
 [node name="MainUI" type="Control"]
@@ -35,9 +36,13 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
+[node name="CenterContainer2" type="MarginContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_top = -124
+
+[node name="ShiftTimer" parent="MarginContainer/GridContainer/HBoxContainer/CenterContainer2" instance=ExtResource("1_w4h73")]
+layout_mode = 2
 
 [node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
