@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Organ" load_steps=3 format=3 uid="uid://d4nl7qnkj8bq2"]
 
-[ext_resource type="Texture2D" uid="uid://b4noqg61ylr81" path="res://src/delivery/organs/icons/liver.png" id="1_ga006"]
+[ext_resource type="Texture2D" uid="uid://dk0skwq1bxvhq" path="res://src/delivery/organs/icons/liver.png" id="1_ga006"]
 [ext_resource type="Script" path="res://src/delivery/organs/organ.gd" id="1_j7opk"]
 
 [resource]

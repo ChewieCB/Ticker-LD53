@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Organ" load_steps=3 format=3 uid="uid://c4nmqntbjjxwl"]
 
 [ext_resource type="Script" path="res://src/delivery/organs/organ.gd" id="1_hmf3s"]
-[ext_resource type="Texture2D" uid="uid://d506lp57dio3" path="res://src/delivery/organs/icons/brain.png" id="1_txdiq"]
+[ext_resource type="Texture2D" uid="uid://b7usg2waiid3n" path="res://src/delivery/organs/icons/brain.png" id="1_txdiq"]
 
 [resource]
 script = ExtResource("1_hmf3s")
-name = "Organ"
+name = "Brain"
 icon = ExtResource("1_txdiq")
 base_value = 100
 min_value = 50

@@ -25,8 +25,8 @@ func update_time_display() -> String:
 	var timer_seconds = int(timer.time_left) % 60
 	var time_string = "[center]{minutes}:{seconds}[/center]".format(
 		{
-			"minutes": str(timer_minutes),
-			"seconds": (timer_seconds)
+			"minutes": "%01d" % timer_minutes,
+			"seconds": "%02d" % timer_seconds
 		}
 	)
 	return time_string

@@ -1,8 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnrg586wt1f35"]
+[gd_scene load_steps=11 format=3 uid="uid://dnrg586wt1f35"]
 
 [ext_resource type="Script" path="res://src/ui/main_ui/organ_ui/organ_ui.gd" id="1_1n03x"]
 [ext_resource type="Texture2D" uid="uid://80yao4blh6lp" path="res://src/ui/main_ui/dialog_box/sprites/frame/frame.png" id="1_f0kuc"]
-[ext_resource type="Texture2D" uid="uid://d506lp57dio3" path="res://src/delivery/organs/icons/brain.png" id="2_5sfv2"]
+[ext_resource type="Shader" path="res://src/ui/main_ui/organ_ui/palette_swap.gdshader" id="3_1goae"]
+[ext_resource type="Texture2D" uid="uid://fjbe6hujbcdv" path="res://src/delivery/organs/icons/heart.png" id="4_hp5ni"]
+[ext_resource type="FontFile" uid="uid://4oe523gnsjyh" path="res://assets/fonts/hf-scifi-complete/marksman-v1/Marksman.ttf" id="4_ocl7f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dss5j"]
+shader = ExtResource("3_1goae")
+shader_parameter/original_0 = Color(0.533333, 0.211765, 0.0862745, 1)
+shader_parameter/original_1 = Color(0.819608, 0.329412, 0, 1)
+shader_parameter/original_2 = Color(1, 0.635294, 0.219608, 1)
+shader_parameter/replace_0 = Color(0.533333, 0.211765, 0.0862745, 1)
+shader_parameter/replace_1 = Color(0.819608, 0.329412, 0, 1)
+shader_parameter/replace_2 = Color(1, 0.635294, 0.219608, 1)
 
 [sub_resource type="Animation" id="Animation_of6qp"]
 resource_name = "default"
@@ -125,21 +136,18 @@ theme_override_constants/margin_left = 0
 layout_mode = 2
 texture = ExtResource("1_f0kuc")
 
-[node name="TEMP_Icon" type="TextureRect" parent="MarginContainer"]
-layout_mode = 2
-texture = ExtResource("2_5sfv2")
-
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="BackgroundColour" type="ColorRect" parent="MarginContainer/MarginContainer"]
+[node name="Organ" type="TextureRect" parent="MarginContainer/MarginContainer"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_dss5j")
 layout_mode = 2
-color = Color(0.807843, 0.368627, 0.168627, 1)
+texture = ExtResource("4_hp5ni")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
@@ -147,26 +155,35 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = 4
 
 [node name="OrganName" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_ocl7f")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "Organ"
+text = "[center]Organ[/center]"
+scroll_active = false
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Organ" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_top = 4
 
 [node name="OrganHealth" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+texture_filter = 1
 layout_mode = 2
-text = "Health"
+theme_override_fonts/normal_font = ExtResource("4_ocl7f")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Health[/center]"
+scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"

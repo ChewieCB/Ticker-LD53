@@ -1,15 +1,18 @@
 [gd_resource type="Resource" script_class="Organ" load_steps=3 format=3 uid="uid://bo8omyg58a0ba"]
 
 [ext_resource type="Script" path="res://src/delivery/organs/organ.gd" id="1_522dh"]
-[ext_resource type="Texture2D" uid="uid://b8nyiajspy3t1" path="res://src/delivery/organs/icons/generic.png" id="1_fo545"]
+[ext_resource type="Texture2D" uid="uid://dgbm8y7w73hww" path="res://src/delivery/organs/icons/generic.png" id="1_fo545"]
 
 [resource]
 script = ExtResource("1_522dh")
 name = "Skin"
 icon = ExtResource("1_fo545")
+base_value = 100
+min_value = 50
+max_value = 200
 fragility = 1.0
 default_degredation_rate = 0.0
-successful_delivery_text = Array[String](["Oh, it’s all in a big mushy pile. Lovely.", "I thought it’d be folded--you know, like a fitted sheet."])
-successful_low_quality_delivery_text = Array[String]([])
-failed_damaged_delivery_text = Array[String]([])
-failed_timeout_delivery_text = Array[String]([])
+successful_delivery_text = ["Oh, it’s all in a big mushy pile. Lovely.", "I thought it’d be folded--you know, like a fitted sheet."]
+successful_low_quality_delivery_text = []
+failed_damaged_delivery_text = []
+failed_timeout_delivery_text = []

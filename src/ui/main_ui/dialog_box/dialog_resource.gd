@@ -3,14 +3,15 @@ class_name Dialog
 
 enum DIALOG_TYPE {INFO, SUCCESS, FAIL}
 
-var portrait: Texture2D
-var type: DIALOG_TYPE
-var reward: int
+@export_group("Display")
+@export var type: DIALOG_TYPE
+@export var portrait: Texture2D
+@export var head_text: String
+@export var subhead_text: String
+@export var body_text: String
+@export var reward: int
 var organ_quality: float
 var goal_organ_quality: float
-var head_text: String
-var subhead_text: String
-var body_text: String
  
 
 func _init(

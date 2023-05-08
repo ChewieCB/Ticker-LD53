@@ -16,7 +16,7 @@ var recipient: Recipient
 
 func _init(
 		p_pickup_location = null, p_drop_off_location = null, p_organ = null, 
-		p_organ_starting_quality = 1.0, p_organ_goal_quality = 0.5, p_organ_degredation_rate = 0.0,
+		p_organ_starting_quality = randf_range(0, 1), p_organ_goal_quality = 0.5, p_organ_degredation_rate = 0.0,
 		p_reward = 0, p_recipient = null
 	):
 	pickup_location = p_pickup_location
