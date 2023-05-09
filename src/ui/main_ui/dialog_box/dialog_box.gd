@@ -15,9 +15,19 @@ enum DIALOG_TYPE {INFO, SUCCESS, FAIL}
 var dialog = Dialog:
 	set = set_dialog
 
+var is_dialog_visible: bool = false
+
 
 func _ready():
 	add_to_group("ui/dialog")
+
+
+func _physics_process(_delta):
+	if is_dialog_visible:
+		if Input.is_action_just_pressed("interact"):
+			hide_dialog()
+			if dialog.is_paused:
+				get_tree().paused = false
 
 
 func generate_title_text(dialog) -> String:
@@ -63,6 +73,11 @@ func get_organ_color(organ_quality, goal_organ_quality):
 
 func set_dialog(value):
 	dialog = value
+	# Don't overwrite a currently in progress dialog
+	if is_dialog_visible:
+		hide_dialog()
+		await self.finished
+	
 	portrait.texture = dialog.portrait
 	# TODO - icon
 	match dialog.type:
@@ -78,29 +93,41 @@ func set_dialog(value):
 	if dialog.subhead_text == "":
 		sub_title_text.text = generate_sub_title_text(dialog)
 	body_text.text = dialog.body_text
+	
 	# Handle if the dialog box pauses the game
 	if dialog.is_paused:
 		get_tree().paused = true
+	
 	# Animate the dialog box
 	animation_player.play("show_dialog")
 	await animation_player.animation_finished
+	
+	is_dialog_visible = true
 	if dialog.linked_dialog:
 		animation_player.play("show_next")
 		await animation_player.animation_finished
 		animation_player.play("wait_next")
-	if dialog.auto_fade:
-		await get_tree().create_timer(dialog.auto_fade_after).timeout
-		hide_dialog()
-		if dialog.is_paused:
-			get_tree().paused = false
+	
+	# TODO - fix auto fade
+#	if dialog.auto_fade:
+#		await get_tree().create_timer(dialog.auto_fade_after).timeout
+#		if is_dialog_visible:
+#			hide_dialog()
+#			if dialog.is_paused:
+#				get_tree().paused = false
 
 
 func hide_dialog():
 	if dialog.linked_dialog:
 		animation_player.play("hide_next")
 	# Animate the dialog box
-	animation_player.play("hide_dialog")
 	if dialog.linked_dialog:
+		is_dialog_visible = false
+		await animation_player.animation_finished
 		set_dialog(dialog.linked_dialog)
 	else:
 		finished.emit()
+		animation_player.play("hide_dialog")
+		is_dialog_visible = false
+		await animation_player.animation_finished
+		

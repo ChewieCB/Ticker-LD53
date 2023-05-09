@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://ckfmp0ilkcy2o"]
+
+[ext_resource type="Resource" uid="uid://chevxkxlry1lo" path="res://src/levels/0_testbed/cutscene_dialog_resources/0_flux_intro/3_flux_intro.tres" id="1_33v2x"]
+[ext_resource type="Texture2D" uid="uid://hqyhov6hw8gx" path="res://src/delivery/info_icons/flux.png" id="1_pbp6o"]
+[ext_resource type="Script" path="res://src/ui/main_ui/dialog_box/dialog_resource.gd" id="2_8kmkx"]
+
+[resource]
+script = ExtResource("2_8kmkx")
+type = 0
+portrait = ExtResource("1_pbp6o")
+head_text = "Incoming Message"
+subhead_text = "RE: Your policy"
+body_text = "Your heart's trial period has expired and your Flux Payment Plan has been activated. "
+auto_fade = true
+auto_fade_after = 3
+linked_dialog = ExtResource("1_33v2x")
+is_paused = true
+reward = 0
