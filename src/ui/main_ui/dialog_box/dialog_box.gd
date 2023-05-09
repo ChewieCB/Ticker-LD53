@@ -16,6 +16,8 @@ var dialog = Dialog:
 
 func _ready():
 	add_to_group("ui/dialog")
+	var intro_dialog_0 = load("res://src/levels/0_testbed/cutscene_dialog_resources/0_flux_intro/0_flux_intro.tres") as Dialog
+	set_dialog(intro_dialog_0)
 
 
 func generate_title_text(dialog) -> String:
@@ -63,16 +65,35 @@ func set_dialog(value):
 	dialog = value
 	portrait.texture = dialog.portrait
 	# TODO - icon
-	title_text.text = generate_title_text(dialog)
-	sub_title_text.text = generate_sub_title_text(dialog)
+	match dialog.type:
+		Dialog.DIALOG_TYPE.INFO:
+			icon.texture = load("res://src/ui/main_ui/dialog_box/info.png")
+		Dialog.DIALOG_TYPE.SUCCESS:
+			icon.texture = load("res://src/ui/main_ui/dialog_box/success.png")
+		Dialog.DIALOG_TYPE.FAIL:
+			icon.texture = load("res://src/ui/main_ui/dialog_box/failure.png")
+	
+	if dialog.head_text == "":
+		title_text.text = generate_title_text(dialog)
+	if dialog.subhead_text == "":
+		sub_title_text.text = generate_sub_title_text(dialog)
 	body_text.text = dialog.body_text
 	# Animate the dialog box
 	animation_player.play("show_dialog")
 	await animation_player.animation_finished
-	await get_tree().create_timer(1.0).timeout
-	hide_dialog()
+	if dialog.linked_dialog:
+		animation_player.play("show_next")
+		await animation_player.animation_finished
+		animation_player.play("wait_next")
+	if dialog.auto_fade:
+		await get_tree().create_timer(dialog.auto_fade_after).timeout
+		hide_dialog()
 
 
 func hide_dialog():
+	if dialog.linked_dialog:
+		animation_player.play("hide_next")
 	# Animate the dialog box
 	animation_player.play("hide_dialog")
+	if dialog.linked_dialog:
+		set_dialog(dialog.linked_dialog)

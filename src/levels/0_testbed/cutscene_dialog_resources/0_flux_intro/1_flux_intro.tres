@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://bqutitwuvwab"]
+
+[ext_resource type="Texture2D" uid="uid://hqyhov6hw8gx" path="res://src/delivery/info_icons/flux.png" id="1_81fsh"]
+[ext_resource type="Script" path="res://src/ui/main_ui/dialog_box/dialog_resource.gd" id="2_os41a"]
+
+[resource]
+script = ExtResource("2_os41a")
+type = 0
+portrait = ExtResource("1_81fsh")
+head_text = "Incoming Message"
+subhead_text = "RE: Your policy"
+body_text = "We love seeing our customers lead happy and healthy lives on Friedman station."
+auto_fade = true
+auto_fade_after = 3
+reward = 0
