@@ -421,6 +421,7 @@ _data = {
 }
 
 [node name="Dialog" type="Control"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -435,9 +436,9 @@ script = ExtResource("1_48lrq")
 texture_filter = 1
 custom_minimum_size = Vector2(496, 240)
 layout_mode = 2
-offset_left = 346.0
+offset_left = 200.0
 offset_top = 164.0
-offset_right = 842.0
+offset_right = 696.0
 offset_bottom = 404.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -534,7 +535,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="SeparatorContainer" type="MarginContainer" parent="TextBox/VBoxContainer/Body/VBoxContainer"]
-modulate = Color(1, 1, 1, 0.790737)
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_bottom = 8
@@ -566,17 +566,17 @@ theme_override_fonts/italics_font = ExtResource("4_qy10j")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/italics_font_size = 16
 bbcode_enabled = true
-text = "Thank you for purchasing a new Flux Medical heart."
+text = "We love seeing our customers lead happy and healthy lives on Friedman station."
 scroll_active = false
-visible_characters = 36
-visible_ratio = 0.72
+visible_characters = 80
+visible_ratio = 1.02564
 
 [node name="Portrait" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 2
-offset_left = 290.0
+offset_left = 144.0
 offset_top = 136.0
-offset_right = 419.0
+offset_right = 273.0
 offset_bottom = 264.0
 size_flags_horizontal = 3
 texture = ExtResource("8_7pnfw")
@@ -585,9 +585,9 @@ texture = ExtResource("8_7pnfw")
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 787.0
-offset_top = 375.0
+offset_top = 350.0
 offset_right = 827.0
-offset_bottom = 415.0
+offset_bottom = 390.0
 texture = ExtResource("9_idd56")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

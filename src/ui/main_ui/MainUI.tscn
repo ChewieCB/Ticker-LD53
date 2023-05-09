@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtmax7d1xvse5"]
+[gd_scene load_steps=5 format=3 uid="uid://dtmax7d1xvse5"]
 
 [ext_resource type="PackedScene" uid="uid://p1io2m7nt5i5" path="res://src/ui/main_ui/dialog_box/DialogBox.tscn" id="1_a41cl"]
+[ext_resource type="PackedScene" uid="uid://ddykiuxij8ftg" path="res://src/ui/main_ui/reward_ui/RewardUI.tscn" id="1_nclmw"]
 [ext_resource type="PackedScene" uid="uid://cilam7g4von4s" path="res://src/ui/main_ui/shift_timer/ShiftTimer.tscn" id="1_w4h73"]
 [ext_resource type="PackedScene" uid="uid://dnrg586wt1f35" path="res://src/ui/main_ui/organ_ui/OrganUI.tscn" id="2_fosbo"]
 
@@ -32,9 +33,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
+[node name="CenterContainer" type="MarginContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = -142
+theme_override_constants/margin_top = -124
 
 [node name="CenterContainer2" type="MarginContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
@@ -44,9 +47,14 @@ theme_override_constants/margin_top = -124
 [node name="ShiftTimer" parent="MarginContainer/GridContainer/HBoxContainer/CenterContainer2" instance=ExtResource("1_w4h73")]
 layout_mode = 2
 
-[node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
+[node name="CenterContainer3" type="MarginContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 89
+theme_override_constants/margin_top = -62
+
+[node name="RewardUI" parent="MarginContainer/GridContainer/HBoxContainer/CenterContainer3" instance=ExtResource("1_nclmw")]
+layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/GridContainer"]
 layout_mode = 2
@@ -61,6 +69,7 @@ theme_override_constants/margin_left = -591
 theme_override_constants/margin_top = -225
 
 [node name="Dialog" parent="MarginContainer/GridContainer/HBoxContainer2/CenterContainer" instance=ExtResource("1_a41cl")]
+modulate = Color(1, 1, 1, 1)
 layout_mode = 2
 
 [node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/GridContainer/HBoxContainer2"]

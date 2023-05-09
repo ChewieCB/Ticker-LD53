@@ -78,6 +78,7 @@ func complete_delivery(last_zone: DeliveryZone) -> void:
 	# Update dialog UI
 	var completion_dialog = delivery.end_delivery()
 	get_tree().call_group("ui/dialog", "set_dialog", completion_dialog)
+	get_tree().call_group("ui/cash", "add_reward", delivery.reward)
 	# Update last used values
 	last_used_organ = delivery.organ
 	last_used_recipient = delivery.recipient
@@ -104,7 +105,7 @@ func generate_delivery(pickup_location: DeliveryZone, organ: Organ, recipient: R
 	delivery.pickup_location = pickup_location
 	delivery.drop_off_location = generate_drop_off(pickup_location)
 	delivery.organ = organ
-	delivery.reward = organ.base_value
+	delivery.reward = randi_range(organ.base_value - 30, organ.base_value + 30)
 	delivery.recipient = recipient
 	
 	return delivery

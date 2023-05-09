@@ -33,6 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Frame" type="NinePatchRect" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("1_cc5mb")
 patch_margin_left = 16
@@ -111,3 +112,6 @@ scroll_active = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

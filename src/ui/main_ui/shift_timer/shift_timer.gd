@@ -30,3 +30,8 @@ func update_time_display() -> String:
 		}
 	)
 	return time_string
+
+
+func _on_timer_timeout():
+	get_tree().reload_current_scene()
+
