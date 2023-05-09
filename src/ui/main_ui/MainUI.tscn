@@ -69,7 +69,6 @@ theme_override_constants/margin_left = -591
 theme_override_constants/margin_top = -225
 
 [node name="Dialog" parent="MarginContainer/GridContainer/HBoxContainer2/CenterContainer" instance=ExtResource("1_a41cl")]
-modulate = Color(1, 1, 1, 1)
 layout_mode = 2
 
 [node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/GridContainer/HBoxContainer2"]

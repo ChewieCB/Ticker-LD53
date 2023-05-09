@@ -1,6 +1,8 @@
 @tool
 extends Control
 
+signal finished
+
 enum DIALOG_TYPE {INFO, SUCCESS, FAIL}
 
 @onready var portrait = $Portrait
@@ -16,8 +18,6 @@ var dialog = Dialog:
 
 func _ready():
 	add_to_group("ui/dialog")
-	var intro_dialog_0 = load("res://src/levels/0_testbed/cutscene_dialog_resources/0_flux_intro/0_flux_intro.tres") as Dialog
-	set_dialog(intro_dialog_0)
 
 
 func generate_title_text(dialog) -> String:
@@ -78,6 +78,9 @@ func set_dialog(value):
 	if dialog.subhead_text == "":
 		sub_title_text.text = generate_sub_title_text(dialog)
 	body_text.text = dialog.body_text
+	# Handle if the dialog box pauses the game
+	if dialog.is_paused:
+		get_tree().paused = true
 	# Animate the dialog box
 	animation_player.play("show_dialog")
 	await animation_player.animation_finished
@@ -88,6 +91,8 @@ func set_dialog(value):
 	if dialog.auto_fade:
 		await get_tree().create_timer(dialog.auto_fade_after).timeout
 		hide_dialog()
+		if dialog.is_paused:
+			get_tree().paused = false
 
 
 func hide_dialog():
@@ -97,3 +102,5 @@ func hide_dialog():
 	animation_player.play("hide_dialog")
 	if dialog.linked_dialog:
 		set_dialog(dialog.linked_dialog)
+	else:
+		finished.emit()

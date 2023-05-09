@@ -9,7 +9,6 @@ extends Control
 func _ready():
 	add_to_group("ui/timer")
 	set_timer(120)
-	timer.start()
 
 
 func _physics_process(_delta):
@@ -18,6 +17,10 @@ func _physics_process(_delta):
 
 func set_timer(time):
 	timer.wait_time = time
+
+
+func start_timer():
+	timer.start()
 
 
 func update_time_display() -> String:

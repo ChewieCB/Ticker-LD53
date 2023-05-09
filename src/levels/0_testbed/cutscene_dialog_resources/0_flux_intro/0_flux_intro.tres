@@ -14,4 +14,5 @@ body_text = "Thank you for purchasing a new Flux Medical heart."
 auto_fade = true
 auto_fade_after = 3
 linked_dialog = ExtResource("1_mxhsk")
+is_paused = true
 reward = 0

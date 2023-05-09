@@ -13,6 +13,7 @@ enum DIALOG_TYPE {INFO, SUCCESS, FAIL}
 @export var auto_fade: bool = true
 @export var auto_fade_after: int = 2
 @export var linked_dialog: Resource = null
+@export var is_paused: bool = false
 @export_group("Value")
 @export var reward: int
 var organ_quality: float

@@ -12,4 +12,5 @@ subhead_text = "RE: Your policy"
 body_text = "We love seeing our customers lead happy and healthy lives on Friedman station."
 auto_fade = true
 auto_fade_after = 3
+is_paused = true
 reward = 0
