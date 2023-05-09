@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtmax7d1xvse5"]
+
+[ext_resource type="PackedScene" uid="uid://p1io2m7nt5i5" path="res://src/ui/main_ui/dialog_box/DialogBox.tscn" id="1_a41cl"]
+[ext_resource type="PackedScene" uid="uid://ddykiuxij8ftg" path="res://src/ui/main_ui/reward_ui/RewardUI.tscn" id="1_nclmw"]
+[ext_resource type="PackedScene" uid="uid://cilam7g4von4s" path="res://src/ui/main_ui/shift_timer/ShiftTimer.tscn" id="1_w4h73"]
+[ext_resource type="PackedScene" uid="uid://dnrg586wt1f35" path="res://src/ui/main_ui/organ_ui/OrganUI.tscn" id="2_fosbo"]
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="MarginContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = -142
+theme_override_constants/margin_top = -124
+
+[node name="CenterContainer2" type="MarginContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = -124
+
+[node name="ShiftTimer" parent="MarginContainer/GridContainer/HBoxContainer/CenterContainer2" instance=ExtResource("1_w4h73")]
+layout_mode = 2
+
+[node name="CenterContainer3" type="MarginContainer" parent="MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 89
+theme_override_constants/margin_top = -62
+
+[node name="RewardUI" parent="MarginContainer/GridContainer/HBoxContainer/CenterContainer3" instance=ExtResource("1_nclmw")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="MarginContainer" parent="MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = -591
+theme_override_constants/margin_top = -225
+
+[node name="Dialog" parent="MarginContainer/GridContainer/HBoxContainer2/CenterContainer" instance=ExtResource("1_a41cl")]
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer3" type="MarginContainer" parent="MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 206
+theme_override_constants/margin_top = 40
+
+[node name="OrganUI" parent="MarginContainer/GridContainer/HBoxContainer3/CenterContainer3" instance=ExtResource("2_fosbo")]
+layout_mode = 2

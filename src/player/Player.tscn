@@ -1,0 +1,178 @@
+[gd_scene load_steps=22 format=3 uid="uid://dn8wk27olp27r"]
+
+[ext_resource type="Texture2D" uid="uid://bbjs24gh6qykm" path="res://src/player/assets/sprites/bike_1_right_2.png" id="1_8nbie"]
+[ext_resource type="Texture2D" uid="uid://dyabxygnhcqpf" path="res://src/player/assets/sprites/bike_1_no_exhaust.png" id="1_8uqtc"]
+[ext_resource type="Script" path="res://src/player/player.gd" id="1_kapy7"]
+[ext_resource type="Script" path="res://src/utils/state_machine/state_manager.gd" id="2_olxmd"]
+[ext_resource type="Script" path="res://src/utils/state_machine/states/move_state.gd" id="3_hy4ei"]
+[ext_resource type="Texture2D" uid="uid://fmm4df04b31s" path="res://src/player/assets/sprites/bike_1_left_1.png" id="3_kxcyo"]
+[ext_resource type="Script" path="res://src/player/states/idle.gd" id="3_n5fcb"]
+[ext_resource type="Texture2D" uid="uid://i8vecd6wx7ei" path="res://src/player/assets/sprites/exhaust.png" id="3_ti2du"]
+[ext_resource type="Texture2D" uid="uid://cky3a3cw3t5fd" path="res://src/player/assets/sprites/bike_1_left2.png" id="4_8401u"]
+[ext_resource type="Script" path="res://src/player/states/accelerating.gd" id="5_5grcq"]
+[ext_resource type="Texture2D" uid="uid://c0deje64xrntj" path="res://src/player/assets/sprites/bike_1_right_1.png" id="5_u2eoh"]
+[ext_resource type="Script" path="res://src/player/states/braking.gd" id="6_kmiir"]
+[ext_resource type="Script" path="res://src/player/states/reversing.gd" id="7_kslvh"]
+[ext_resource type="Script" path="res://src/player/states/crashing.gd" id="8_cp0nj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yvouv"]
+radius = 6.0
+height = 26.0
+
+[sub_resource type="Animation" id="Animation_jgl7h"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BikeSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_8uqtc")]
+}
+
+[sub_resource type="Animation" id="Animation_477n3"]
+resource_name = "left"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BikeSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_kxcyo")]
+}
+
+[sub_resource type="Animation" id="Animation_6pohu"]
+resource_name = "left_drift"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BikeSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_8401u")]
+}
+
+[sub_resource type="Animation" id="Animation_p5suy"]
+resource_name = "right"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BikeSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_u2eoh")]
+}
+
+[sub_resource type="Animation" id="Animation_2peb6"]
+resource_name = "right_drift"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BikeSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_8nbie")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_um0xc"]
+_data = {
+"idle": SubResource("Animation_jgl7h"),
+"left": SubResource("Animation_477n3"),
+"left_drift": SubResource("Animation_6pohu"),
+"right": SubResource("Animation_p5suy"),
+"right_drift": SubResource("Animation_2peb6")
+}
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_kapy7")
+
+[node name="BikeSprite" type="Sprite2D" parent="."]
+position = Vector2(-3, 0)
+rotation = 1.5708
+texture = ExtResource("1_8uqtc")
+
+[node name="ExhaustSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3, 0)
+rotation = 1.5708
+texture = ExtResource("3_ti2du")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yvouv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("2_olxmd")
+starting_state = NodePath("Movement/Idle")
+
+[node name="Movement" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "accelerate_state", "braking_state", "reverse_state", "crash_state")]
+script = ExtResource("3_hy4ei")
+engine_power = 600
+max_speed_reverse = 45
+idle_state = NodePath("Idle")
+accelerate_state = NodePath("Accelerating")
+braking_state = NodePath("Braking")
+reverse_state = NodePath("Reversing")
+crash_state = NodePath("Reversing")
+
+[node name="Idle" type="Node" parent="StateMachine/Movement"]
+script = ExtResource("3_n5fcb")
+
+[node name="Accelerating" type="Node" parent="StateMachine/Movement"]
+script = ExtResource("5_5grcq")
+is_exhaust_visible = true
+
+[node name="Braking" type="Node" parent="StateMachine/Movement"]
+script = ExtResource("6_kmiir")
+
+[node name="Reversing" type="Node" parent="StateMachine/Movement"]
+script = ExtResource("7_kslvh")
+
+[node name="Crashing" type="Node" parent="StateMachine/Movement"]
+script = ExtResource("8_cp0nj")
+
+[node name="DEBUG_StateLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "State"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_um0xc")
+}

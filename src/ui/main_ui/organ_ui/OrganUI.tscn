@@ -1,0 +1,192 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnrg586wt1f35"]
+
+[ext_resource type="Script" path="res://src/ui/main_ui/organ_ui/organ_ui.gd" id="1_1n03x"]
+[ext_resource type="Texture2D" uid="uid://80yao4blh6lp" path="res://src/ui/main_ui/dialog_box/sprites/frame/frame.png" id="1_f0kuc"]
+[ext_resource type="Shader" path="res://src/ui/main_ui/organ_ui/palette_swap.gdshader" id="3_1goae"]
+[ext_resource type="Texture2D" uid="uid://fjbe6hujbcdv" path="res://src/delivery/organs/icons/heart.png" id="4_hp5ni"]
+[ext_resource type="FontFile" uid="uid://4oe523gnsjyh" path="res://assets/fonts/hf-scifi-complete/marksman-v1/Marksman.ttf" id="4_ocl7f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dss5j"]
+shader = ExtResource("3_1goae")
+shader_parameter/original_0 = Color(0.533333, 0.211765, 0.0862745, 1)
+shader_parameter/original_1 = Color(0.819608, 0.329412, 0, 1)
+shader_parameter/original_2 = Color(1, 0.635294, 0.219608, 1)
+shader_parameter/replace_0 = Color(0.533333, 0.211765, 0.0862745, 1)
+shader_parameter/replace_1 = Color(0.819608, 0.329412, 0, 1)
+shader_parameter/replace_2 = Color(1, 0.635294, 0.219608, 1)
+
+[sub_resource type="Animation" id="Animation_of6qp"]
+resource_name = "default"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:theme_override_constants/margin_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7uca8"]
+resource_name = "hide_status"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:theme_override_constants/margin_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1.18921, 1),
+"update": 0,
+"values": [0, 130]
+}
+
+[sub_resource type="Animation" id="Animation_1g8qp"]
+resource_name = "show_status"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:theme_override_constants/margin_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.466516, 1),
+"update": 0,
+"values": [130, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p1w3g"]
+_data = {
+"default": SubResource("Animation_of6qp"),
+"hide_status": SubResource("Animation_7uca8"),
+"show_status": SubResource("Animation_1g8qp")
+}
+
+[node name="OrganUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_1n03x")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+
+[node name="Frame" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_f0kuc")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Organ" type="TextureRect" parent="MarginContainer/MarginContainer"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_dss5j")
+layout_mode = 2
+texture = ExtResource("4_hp5ni")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = 4
+
+[node name="OrganName" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_ocl7f")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Organ[/center]"
+scroll_active = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 4
+
+[node name="OrganHealth" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_ocl7f")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Health[/center]"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_p1w3g")
+}

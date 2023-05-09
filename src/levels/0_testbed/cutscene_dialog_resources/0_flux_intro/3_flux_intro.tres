@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://chevxkxlry1lo"]
+
+[ext_resource type="Texture2D" uid="uid://hqyhov6hw8gx" path="res://src/delivery/info_icons/flux.png" id="1_hutq6"]
+[ext_resource type="Script" path="res://src/ui/main_ui/dialog_box/dialog_resource.gd" id="2_k2yip"]
+
+[resource]
+script = ExtResource("2_k2yip")
+type = 0
+portrait = ExtResource("1_hutq6")
+head_text = "Incoming Message"
+subhead_text = "RE: Your policy"
+body_text = "Flux Medical is not liable for any damages occuring from remotely triggered organ failure."
+auto_fade = true
+auto_fade_after = 3
+is_paused = true
+reward = 0

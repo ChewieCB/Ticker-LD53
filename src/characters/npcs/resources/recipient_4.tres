@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Recipient" load_steps=3 format=3 uid="uid://cllv7yarrgwub"]
+
+[ext_resource type="Script" path="res://src/characters/npcs/recipient.gd" id="1_gq7ls"]
+[ext_resource type="Texture2D" uid="uid://c1s7dvnjigpab" path="res://src/characters/npcs/portraits/portrait_4.png" id="1_vneck"]
+
+[resource]
+script = ExtResource("1_gq7ls")
+name = "Mobius"
+portrait = ExtResource("1_vneck")

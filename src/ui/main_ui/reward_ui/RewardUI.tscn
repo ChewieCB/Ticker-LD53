@@ -1,0 +1,163 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddykiuxij8ftg"]
+
+[ext_resource type="Script" path="res://src/ui/main_ui/reward_ui/cash_ui.gd" id="1_1857d"]
+[ext_resource type="Texture2D" uid="uid://80yao4blh6lp" path="res://src/ui/main_ui/dialog_box/sprites/frame/frame.png" id="2_2jxni"]
+[ext_resource type="Texture2D" uid="uid://efmrjt4udgks" path="res://src/ui/main_ui/dialog_box/cash.png" id="3_yulg2"]
+[ext_resource type="FontFile" uid="uid://dl68xvod3xq1g" path="res://assets/fonts/Robtronika-Regular.ttf" id="4_xjs6e"]
+[ext_resource type="Texture2D" uid="uid://c35qwybjrawq7" path="res://src/ui/layout/dialog_box_alt.png" id="5_x4jmy"]
+
+[sub_resource type="Animation" id="Animation_baxdp"]
+resource_name = "add_reward"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/CashChangeContainer/CashChange:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(0.34151, 1, 1.7411, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/CashChangeContainer:theme_override_constants/margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.34151, 1, 1),
+"update": 0,
+"values": [32, 0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_p8663"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/CashChangeContainer/CashChange:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6t0b"]
+_data = {
+"add_reward": SubResource("Animation_baxdp"),
+"default": SubResource("Animation_p8663")
+}
+
+[node name="CashUI" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_1857d")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -45.0
+offset_right = 124.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Frame" type="NinePatchRect" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_2jxni")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CashContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 24
+
+[node name="CashFrameContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CashContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CashFrame" type="TextureRect" parent="MarginContainer/VBoxContainer/CashContainer/CashFrameContainer"]
+layout_mode = 2
+texture = ExtResource("5_x4jmy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CashContainer"]
+layout_mode = 2
+
+[node name="IconContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CashContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 4
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/CashContainer/HBoxContainer/IconContainer"]
+layout_mode = 2
+texture = ExtResource("3_yulg2")
+
+[node name="CashContainter" type="MarginContainer" parent="MarginContainer/VBoxContainer/CashContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = -32
+theme_override_constants/margin_top = 6
+
+[node name="Cash" type="RichTextLabel" parent="MarginContainer/VBoxContainer/CashContainer/HBoxContainer/CashContainter"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_xjs6e")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]10,000[/center]"
+scroll_active = false
+
+[node name="CashChangeContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 34
+
+[node name="CashChange" type="RichTextLabel" parent="MarginContainer/VBoxContainer/CashChangeContainer"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+clip_contents = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_xjs6e")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[right]+$123[/right]"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x6t0b")
+}
+
+[node name="Timer" type="Timer" parent="."]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Recipient" load_steps=3 format=3 uid="uid://b0t32tax6ay8i"]
+
+[ext_resource type="Script" path="res://src/characters/npcs/recipient.gd" id="1_65gld"]
+[ext_resource type="Texture2D" uid="uid://bmja4fjaaa0ki" path="res://src/characters/npcs/portraits/portrait_1.png" id="1_n2uqy"]
+
+[resource]
+script = ExtResource("1_65gld")
+name = "Vince"
+portrait = ExtResource("1_n2uqy")
