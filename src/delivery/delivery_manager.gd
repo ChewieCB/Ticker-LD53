@@ -42,6 +42,9 @@ func _load_resources(dir_path: String) -> Array:
 	var loaded_resources = []
 	var resource_files = DirAccess.get_files_at(dir_path)
 	for resource in resource_files:
+		# Prevents loader issues on export
+		if resource.ends_with(".remap"):
+			resource = resource.trim_suffix(".remap")
 		var item = load(dir_path + resource)
 		loaded_resources.append(item)
 	
