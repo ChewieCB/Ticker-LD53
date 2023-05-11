@@ -492,7 +492,6 @@ _data = {
 
 [node name="Dialog" type="Control"]
 process_mode = 3
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -507,9 +506,9 @@ script = ExtResource("1_48lrq")
 texture_filter = 1
 custom_minimum_size = Vector2(496, 240)
 layout_mode = 2
-offset_left = 200.0
+offset_left = 346.0
 offset_top = 164.0
-offset_right = 696.0
+offset_right = 842.0
 offset_bottom = 404.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -544,14 +543,12 @@ alignment = 1
 layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_2agl3")
 
 [node name="TitleContainer" type="MarginContainer" parent="TextBox/VBoxContainer/HeadContainer/VBoxContainer/TitleContainer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_top = 4
@@ -568,11 +565,10 @@ text = "[color=yellow]Incoming Message[/color]"
 scroll_active = false
 
 [node name="SubTitleContainer" type="MarginContainer" parent="TextBox/VBoxContainer/HeadContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 88)
 layout_mode = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 128
 theme_override_constants/margin_bottom = 38
 
@@ -608,7 +604,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="SeparatorContainer" type="MarginContainer" parent="TextBox/VBoxContainer/Body/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_bottom = 8
@@ -625,6 +620,7 @@ layout_mode = 2
 texture = ExtResource("7_6r7hs")
 
 [node name="BodyContainer" type="MarginContainer" parent="TextBox/VBoxContainer/Body/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -642,15 +638,15 @@ theme_override_font_sizes/italics_font_size = 16
 bbcode_enabled = true
 text = "Thank you for purchasing a new Flux Medical heart."
 scroll_active = false
-visible_characters = 0
-visible_ratio = 0.0
+visible_characters = 100
+visible_ratio = 2.0
 
 [node name="Portrait" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 2
-offset_left = 144.0
+offset_left = 290.0
 offset_top = 136.0
-offset_right = 273.0
+offset_right = 419.0
 offset_bottom = 264.0
 size_flags_horizontal = 3
 texture = ExtResource("8_7pnfw")
@@ -659,9 +655,9 @@ texture = ExtResource("8_7pnfw")
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 787.0
-offset_top = 350.0
+offset_top = 375.0
 offset_right = 827.0
-offset_bottom = 390.0
+offset_bottom = 415.0
 texture = ExtResource("9_idd56")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
