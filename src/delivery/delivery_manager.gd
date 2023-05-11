@@ -29,10 +29,14 @@ func _ready() -> void:
 		zone.activated.connect(complete_delivery)
 	for zone in pickup_zones:
 		zone.activated.connect(new_delivery)
+	# Scene Transition
+	var shift_transition_ui = get_tree().get_first_node_in_group("ui/transition/end_shift")
+	shift_transition_ui.start_shift()
+	await shift_transition_ui.shift_started
 	# Trigger the initial cutscene messages
 	var dialog_ui = get_tree().get_first_node_in_group("ui/dialog")
 	var intro_dialog_0 = load("res://src/levels/0_testbed/cutscene_dialog_resources/0_flux_intro/0_flux_intro.tres") as Dialog
-	get_tree().call_group("ui/dialog", "new_dialog", intro_dialog_0)
+	dialog_ui.new_dialog(intro_dialog_0)
 	await dialog_ui.finished
 	get_tree().call_group("ui/timer", "start_timer")
 

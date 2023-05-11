@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://src/ui/main_ui/reward_ui/cash_ui.gd" id="1_1857d"]
 [ext_resource type="Texture2D" uid="uid://80yao4blh6lp" path="res://src/ui/main_ui/dialog_box/sprites/frame/frame.png" id="2_2jxni"]
+[ext_resource type="Texture2D" uid="uid://c35qwybjrawq7" path="res://src/ui/main_ui/dialog_box_alt.png" id="3_etg0a"]
 [ext_resource type="Texture2D" uid="uid://efmrjt4udgks" path="res://src/ui/main_ui/dialog_box/cash.png" id="3_yulg2"]
 [ext_resource type="FontFile" uid="uid://dl68xvod3xq1g" path="res://assets/fonts/Robtronika-Regular.ttf" id="4_xjs6e"]
-[ext_resource type="Texture2D" uid="uid://c35qwybjrawq7" path="res://src/ui/layout/dialog_box_alt.png" id="5_x4jmy"]
 
 [sub_resource type="Animation" id="Animation_baxdp"]
 resource_name = "add_reward"
@@ -106,7 +106,7 @@ size_flags_horizontal = 3
 
 [node name="CashFrame" type="TextureRect" parent="MarginContainer/VBoxContainer/CashContainer/CashFrameContainer"]
 layout_mode = 2
-texture = ExtResource("5_x4jmy")
+texture = ExtResource("3_etg0a")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CashContainer"]
 layout_mode = 2
