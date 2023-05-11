@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalFlags="*res://src/utils/globals/GlobalFlags.gd"
 PlayerManager="*res://src/utils/globals/PlayerManager.gd"
+ShiftManager="*res://src/shift_manager/ShiftManager.tscn"
 
 [display]
 

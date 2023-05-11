@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Shift" load_steps=3 format=3 uid="uid://btc8ewekfwxm8"]
+
+[ext_resource type="Resource" uid="uid://dct4lmnwsdvi3" path="res://src/levels/0_testbed/cutscene_dialog_resources/0_flux_intro/0_flux_intro.tres" id="1_1hmjw"]
+[ext_resource type="Script" path="res://src/shift_manager/shift.gd" id="1_dxga8"]
+
+[resource]
+script = ExtResource("1_dxga8")
+time = 120
+goal = 600
+intro_dialog = ExtResource("1_1hmjw")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8hoyh520k6hw"]
+
+[ext_resource type="Script" path="res://src/shift_manager/shift_manager.gd" id="1_2f7wa"]
+[ext_resource type="Resource" uid="uid://btc8ewekfwxm8" path="res://src/shift_manager/shifts/shift_1.tres" id="2_yunom"]
+[ext_resource type="Resource" uid="uid://coaklk10epsvc" path="res://src/shift_manager/shifts/shift_2.tres" id="3_k2dpd"]
+
+[node name="ShiftManager" type="Node"]
+script = ExtResource("1_2f7wa")
+shift_array = Array[Resource("res://src/shift_manager/shift.gd")]([ExtResource("2_yunom"), ExtResource("3_k2dpd")])

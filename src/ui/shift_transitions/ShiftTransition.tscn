@@ -5,6 +5,286 @@
 [ext_resource type="Texture2D" uid="uid://bmsrg6kloee4o" path="res://src/ui/shift_transitions/button/button1.png" id="2_d54vw"]
 [ext_resource type="Texture2D" uid="uid://f45s17vy1jvv" path="res://src/ui/shift_transitions/button/button2.png" id="3_mobc3"]
 
+[sub_resource type="Animation" id="Animation_5grf0"]
+resource_name = "default"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/EarnedTextContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/BillsTextContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/ProfitTextContiner:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/EarnedValueContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/BillsValueContainer:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/ProfitValueContainer:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MarginContainer/VBoxContainer/ButtonContainer:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5brsb"]
+resource_name = "fadeout"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/EarnedTextContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/BillsTextContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/ProfitTextContiner:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/EarnedValueContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/BillsValueContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.992157), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/ProfitValueContainer:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainer/VBoxContainer/ButtonContainer:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.287175, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3q0uc"]
+resource_name = "new_shift"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1.51572, 0.535887),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.9),
+"transitions": PackedFloat32Array(0.707107, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:theme_override_constants/margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.9),
+"transitions": PackedFloat32Array(0.707107, 1),
+"update": 0,
+"values": [82, 48]
+}
+
+[sub_resource type="Animation" id="Animation_m7ytn"]
+resource_name = "new_shift_fade_title"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.554785, 0.707107),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:theme_override_constants/margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.554785, 0.707107),
+"update": 0,
+"values": [48, 82]
+}
+
 [sub_resource type="Animation" id="Animation_w7lrk"]
 resource_name = "show_bills"
 length = 0.4
@@ -229,298 +509,6 @@ tracks/3/keys = {
 "values": [92, 0]
 }
 
-[sub_resource type="Animation" id="Animation_5grf0"]
-resource_name = "default"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/EarnedTextContainer:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/BillsTextContainer:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/ProfitTextContiner:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/EarnedValueContainer:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/BillsValueContainer:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/ProfitValueContainer:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("MarginContainer/VBoxContainer/ButtonContainer:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_5brsb"]
-resource_name = "fadeout"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.287175, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/EarnedTextContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.287175, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/BillsTextContainer:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.287175, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/ProfitTextContiner:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.287175, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/EarnedValueContainer:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.287175, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/BillsValueContainer:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.287175, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.992157), Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/ProfitValueContainer:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.287175, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("MarginContainer/VBoxContainer/ButtonContainer:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.287175, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("ColorRect:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.287175, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.662745), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_3q0uc"]
-resource_name = "new_shift"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.1),
-"transitions": PackedFloat32Array(1.51572, 0.535887),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3, 0.9),
-"transitions": PackedFloat32Array(0.707107, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:theme_override_constants/margin_top")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.3, 0.9),
-"transitions": PackedFloat32Array(0.707107, 1),
-"update": 0,
-"values": [82, 48]
-}
-
-[sub_resource type="Animation" id="Animation_m7ytn"]
-resource_name = "new_shift_fade_title"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.554785, 0.707107),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/ScreenTitleContainer:theme_override_constants/margin_top")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.554785, 0.707107),
-"update": 0,
-"values": [48, 82]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7l3wd"]
 _data = {
 "default": SubResource("Animation_5grf0"),
@@ -546,6 +534,7 @@ mouse_filter = 1
 script = ExtResource("1_a7u3u")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.662745)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -571,10 +560,9 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="ScreenTitleContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_top = 82
+theme_override_constants/margin_top = 48
 
 [node name="ScreenTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScreenTitleContainer"]
 layout_mode = 2
@@ -601,7 +589,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="EarnedTextContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_right = 0
@@ -614,10 +601,9 @@ bbcode_enabled = true
 text = "[right]Earned: [/right]"
 
 [node name="BillsTextContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_right = 92
+theme_override_constants/margin_right = 0
 
 [node name="BillsText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer/BillsTextContainer"]
 layout_mode = 2
@@ -627,7 +613,6 @@ bbcode_enabled = true
 text = "[right]Flux Medical Bill: [/right]"
 
 [node name="ProfitTextContiner" type="MarginContainer" parent="MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/LeftStatsContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_right = 0
@@ -649,7 +634,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="EarnedValueContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 0
@@ -662,10 +646,10 @@ bbcode_enabled = true
 text = "[left]$0 [/left]"
 
 [node name="BillsValueContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.992157)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 92
+theme_override_constants/margin_left = 0
 
 [node name="BillsValue" type="RichTextLabel" parent="MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer/BillsValueContainer"]
 layout_mode = 2
@@ -675,7 +659,6 @@ bbcode_enabled = true
 text = "[left]$0 [/left]"
 
 [node name="ProfitValueContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/StatsMarginContainer/StatsBoxContainer/RightStatsContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 0
@@ -688,7 +671,6 @@ bbcode_enabled = true
 text = "[left]$0 [/left]"
 
 [node name="ButtonContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = -40
