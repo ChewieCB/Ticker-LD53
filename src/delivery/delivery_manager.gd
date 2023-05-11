@@ -32,7 +32,7 @@ func _ready() -> void:
 	# Trigger the initial cutscene messages
 	var dialog_ui = get_tree().get_first_node_in_group("ui/dialog")
 	var intro_dialog_0 = load("res://src/levels/0_testbed/cutscene_dialog_resources/0_flux_intro/0_flux_intro.tres") as Dialog
-	get_tree().call_group("ui/dialog", "set_dialog", intro_dialog_0)
+	get_tree().call_group("ui/dialog", "new_dialog", intro_dialog_0)
 	await dialog_ui.finished
 	get_tree().call_group("ui/timer", "start_timer")
 
@@ -84,7 +84,7 @@ func complete_delivery(last_zone: DeliveryZone) -> void:
 	var delivery = delivery_queue.pop_front()
 	# Update dialog UI
 	var completion_dialog = delivery.end_delivery()
-	get_tree().call_group("ui/dialog", "set_dialog", completion_dialog)
+	get_tree().call_group("ui/dialog", "new_dialog", completion_dialog)
 	get_tree().call_group("ui/cash", "add_reward", delivery.reward)
 	# Update last used values
 	last_used_organ = delivery.organ
