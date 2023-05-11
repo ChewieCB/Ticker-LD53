@@ -13,6 +13,7 @@ enum DIALOG_TYPE {INFO, SUCCESS, FAIL}
 @onready var body_text = $TextBox/VBoxContainer/Body/VBoxContainer/BodyContainer/BodyText
 @onready var animation_player = $AnimationPlayer
 
+var autofade_timer
 var dialog = Dialog:
 	set = set_dialog
 
@@ -108,7 +109,8 @@ func new_dialog(dialog: Dialog):
 func continue_dialog():
 	# Wait for user input or auto-fade timer to continue
 	if dialog.auto_fade:
-		get_tree().create_timer(dialog.auto_fade_after).timeout.connect(_next)
+		autofade_timer = get_tree().create_timer(dialog.auto_fade_after)
+		autofade_timer.timeout.connect(_next)
 	await self.next
 	
 	# Handle Linked/Chained Dialog's
@@ -147,4 +149,7 @@ func end_dialog():
 
 func _next():
 	# Helper method so we can trigger the next signal via timer
+	if autofade_timer:
+		if autofade_timer.time_left > 0 and autofade_timer.timeout.is_connected(_next):
+			autofade_timer.timeout.disconnect(_next)
 	next.emit()

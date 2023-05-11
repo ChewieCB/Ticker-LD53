@@ -15,6 +15,14 @@ func _ready():
 #	GlobalFlags.IS_PLAYER_CONTROLLABLE = true
 
 
+func _input(event: InputEvent):
+	# Debug/Utility controls
+	if Input.is_action_pressed("quit"):
+		get_tree().quit()
+	elif Input.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
+
+
 func _physics_process(delta: float) -> void:	
 	state_machine.physics_process(delta)
 

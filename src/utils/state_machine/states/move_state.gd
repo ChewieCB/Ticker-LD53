@@ -64,15 +64,6 @@ func enter():
 	actor.exhaust_sprite.visible = is_exhaust_visible
 
 
-func input(event: InputEvent) -> BaseState:
-	# Debug/Utility controls
-	if Input.is_action_pressed("quit"):
-		get_tree().quit()
-	elif Input.is_action_just_pressed("kill_engine"):
-		GlobalFlags.IS_PLAYER_CONTROLLABLE = !GlobalFlags.IS_PLAYER_CONTROLLABLE
-	return null
-
-
 func physics_process(delta: float) -> BaseState:
 	acceleration = Vector2.ZERO
 	
