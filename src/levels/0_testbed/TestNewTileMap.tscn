@@ -1,12 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4d5kupxp7vyu"]
+[gd_scene load_steps=11 format=3 uid="uid://b4d5kupxp7vyu"]
 
 [ext_resource type="PackedScene" uid="uid://dn8wk27olp27r" path="res://src/player/Player.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://db6ljx78d1ckb" path="res://src/delivery/DeliveryManager.tscn" id="1_j8q0j"]
+[ext_resource type="Script" path="res://src/levels/0_testbed/0_test_level.gd" id="1_nfk5g"]
 [ext_resource type="PackedScene" uid="uid://cy78p0fc6gld8" path="res://src/delivery/delivery_zones/DeliveryZone.tscn" id="1_o5dk7"]
+[ext_resource type="Resource" uid="uid://btc8ewekfwxm8" path="res://src/shift_manager/shifts/shift_1.tres" id="2_884j1"]
+[ext_resource type="Resource" uid="uid://to16jusmuset" path="res://src/shift_manager/shifts/shift_2.tres" id="3_0e1e0"]
+[ext_resource type="Resource" uid="uid://br2wwlfh3trvm" path="res://src/shift_manager/shifts/shift_3.tres" id="4_6ki8x"]
 [ext_resource type="PackedScene" uid="uid://dtmax7d1xvse5" path="res://src/ui/main_ui/MainUI.tscn" id="5_ya167"]
+[ext_resource type="PackedScene" uid="uid://c8hoyh520k6hw" path="res://src/shift_manager/ShiftManager.tscn" id="6_7n54w"]
 [ext_resource type="TileSet" uid="uid://bvolwhnham3qr" path="res://src/levels/0_testbed/station_tilemap.tres" id="7"]
 
 [node name="TestNewTileMap" type="Node2D"]
+script = ExtResource("1_nfk5g")
+shifts = [ExtResource("2_884j1"), ExtResource("3_0e1e0"), ExtResource("4_6ki8x")]
 
 [node name="Player" parent="." instance=ExtResource("1")]
 position = Vector2(-160, 0)
@@ -66,3 +73,5 @@ layer_0/tile_data = PackedInt32Array(-196616, 65538, 3, -196615, 131074, 3, -196
 [node name="MainUI" parent="UI" instance=ExtResource("5_ya167")]
 
 [node name="DeliveryManager" parent="." instance=ExtResource("1_j8q0j")]
+
+[node name="ShiftManager" parent="." instance=ExtResource("6_7n54w")]

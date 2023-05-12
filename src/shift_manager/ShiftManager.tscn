@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8hoyh520k6hw"]
+
+[ext_resource type="Script" path="res://src/shift_manager/shift_manager.gd" id="1_2f7wa"]
+
+[node name="ShiftManager" type="Node"]
+script = ExtResource("1_2f7wa")

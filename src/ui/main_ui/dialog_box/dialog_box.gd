@@ -43,7 +43,7 @@ func generate_sub_title_text(dialog) -> String:
 	var sub_title_text_string = ""
 	match dialog.type:
 		DIALOG_TYPE.INFO:
-			sub_title_text_string = "[color=yellow]Incoming Message[/color]"
+			sub_title_text_string = "[color=red]Unknown Sender[/color]"
 		DIALOG_TYPE.SUCCESS:
 			var organ_color = get_organ_color(dialog.organ_quality, dialog.goal_organ_quality)
 			sub_title_text_string = "[i][color={organ_color}]{organ_quality}%[/color] quality\n[color=yellow]${reward}[/color] reward[/i]".format(
@@ -60,7 +60,7 @@ func generate_sub_title_text(dialog) -> String:
 func get_organ_color(organ_quality, goal_organ_quality):
 	if organ_quality > 0.75:
 		return "green"
-	elif organ_quality < 0.75:
+	elif organ_quality < 0.75 and organ_quality > 0.5:
 		return "yellow"
 	elif organ_quality < 0.5 and organ_quality > 0.25:
 		return "orange"
@@ -79,10 +79,16 @@ func set_dialog(value):
 			icon.texture = load("res://src/ui/main_ui/dialog_box/success.png")
 		Dialog.DIALOG_TYPE.FAIL:
 			icon.texture = load("res://src/ui/main_ui/dialog_box/failure.png")
-	if dialog.head_text == "":
-		title_text.text = generate_title_text(dialog)
-	if dialog.subhead_text == "":
-		sub_title_text.text = generate_sub_title_text(dialog)
+	match dialog.head_text:
+		"":
+			title_text.text = generate_title_text(dialog)
+		_:
+			title_text.text= dialog.head_text
+	match dialog.subhead_text:
+		"":
+			sub_title_text.text = generate_sub_title_text(dialog)
+		_:
+			sub_title_text.text = dialog.subhead_text
 	body_text.text = dialog.body_text
 
 

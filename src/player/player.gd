@@ -4,6 +4,8 @@ class_name Player
 @onready var animation_player = $AnimationPlayer
 @onready var exhaust_sprite = $ExhaustSprite
 
+@onready var starting_position = self.position
+
 var state_machine
 var state_label
 

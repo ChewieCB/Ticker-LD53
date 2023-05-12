@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://cfv6dgsi5t0m5"]
+
+[ext_resource type="Texture2D" uid="uid://cyjipkdv2rdqq" path="res://src/delivery/info_icons/zorg.png" id="1_5yqgm"]
+[ext_resource type="Script" path="res://src/ui/main_ui/dialog_box/dialog_resource.gd" id="1_i6ftn"]
+[ext_resource type="Resource" uid="uid://cq7u55hbx63go" path="res://src/levels/0_testbed/cutscene_dialog_resources/1_zorg_intro/1_zorg_intro.tres" id="1_oaw6q"]
+
+[resource]
+script = ExtResource("1_i6ftn")
+type = 0
+portrait = ExtResource("1_5yqgm")
+head_text = "Incoming Message"
+subhead_text = "Welcome to Zorg!"
+body_text = "We are the fastest growing independent organ delivery service on Friedman station, delivering organs from major biotech firms like Flux Medical and Hayak Pharma."
+auto_fade = false
+auto_fade_after = 2
+linked_dialog = ExtResource("1_oaw6q")
+is_paused = true
+reward = 0

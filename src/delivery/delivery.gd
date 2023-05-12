@@ -46,9 +46,9 @@ func end_delivery() -> Dialog:
 	else:
 		dialog.type = Dialog.DIALOG_TYPE.FAIL
 	# TODO - factor these values in instead of randomising them
-	dialog.reward = reward
-	dialog.organ_quality = randf_range(0, 1)
-	dialog.goal_organ_quality = randf_range(0.6, 0.9)
+	dialog.reward = reward * current_organ_quality
+	dialog.organ_quality = current_organ_quality
+	dialog.goal_organ_quality = organ_goal_quality
 	# TODO - factor this text to depend on delivery quality/status
 	var possible_text = organ.successful_delivery_text
 	dialog.body_text = possible_text[randi_range(0, possible_text.size() - 1)]
