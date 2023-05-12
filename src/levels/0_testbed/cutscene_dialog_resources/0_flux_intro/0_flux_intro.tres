@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui/main_ui/dialog_box/dialog_resource.gd" id="1_gh5eb"]
 [ext_resource type="Texture2D" uid="uid://hqyhov6hw8gx" path="res://src/delivery/info_icons/flux.png" id="1_klu6f"]
-[ext_resource type="Resource" uid="uid://bqutitwuvwab" path="res://src/levels/0_testbed/cutscene_dialog_resources/0_flux_intro/1_flux_intro.tres" id="1_mxhsk"]
+[ext_resource type="Resource" uid="uid://bv2laabmfa2xv" path="res://src/levels/0_testbed/cutscene_dialog_resources/0_flux_intro/1_flux_intro.tres" id="1_mxhsk"]
 
 [resource]
 script = ExtResource("1_gh5eb")

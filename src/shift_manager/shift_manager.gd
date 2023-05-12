@@ -3,7 +3,6 @@ extends Node
 signal shift_started
 signal shift_finished
 
-@export var shift_array: Array[Shift]
 var shift: Shift
 
 var shift_transition_ui: Control
@@ -11,7 +10,7 @@ var shift_timer: Control
 
 
 func _ready():
-	# 
+	add_to_group("managers/shift")
 	await get_tree().root.get_child(get_tree().root.get_child_count()-1).ready
 	shift_transition_ui = get_tree().get_first_node_in_group("ui/transition/shift")
 	shift_timer = get_tree().get_first_node_in_group("ui/timer")
@@ -19,7 +18,7 @@ func _ready():
 
 
 func start_shift():
-	shift = shift_array.pop_front()
+	shift = PlayerManager.global_shift_array.pop_front()
 	
 	shift_timer.set_timer(shift.time)
 	shift_transition_ui.start_shift()
@@ -40,4 +39,4 @@ func end_shift():
 	await shift_transition_ui.continue_pressed
 	PlayerManager.current_day += 1
 	PlayerManager.current_cash -= shift.goal
-	start_shift()
+	get_tree().reload_current_scene()

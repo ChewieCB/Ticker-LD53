@@ -5,10 +5,13 @@ extends Control
 @onready var timer = $Timer
 @onready var animation_player = $AnimationPlayer
 
+var shift_manager
 
 func _ready():
 	add_to_group("ui/timer")
-	ShiftManager.shift_started.connect(start_timer)
+	await get_tree().root.get_child(get_tree().root.get_child_count()-1).ready
+	shift_manager = get_tree().get_first_node_in_group("managers/shift")
+	shift_manager.shift_started.connect(start_timer)
 
 
 func _physics_process(_delta):
@@ -36,5 +39,5 @@ func update_time_display() -> String:
 
 
 func _on_timer_timeout():
-	ShiftManager.end_shift()
+	shift_manager.end_shift()
 

@@ -14,7 +14,6 @@ func _ready():
 	state_machine = $StateMachine
 	state_label = $DEBUG_StateLabel
 	state_machine.init(self)
-	ShiftManager.shift_finished.connect(reset_player)
 #	GlobalFlags.IS_PLAYER_CONTROLLABLE = true
 
 
@@ -32,11 +31,4 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	state_machine.process(delta)
-
-
-func reset_player() -> void:
-	self.velocity = Vector2.ZERO
-	self.position = starting_position
-	self.rotation = 0
-	move_and_slide()
 

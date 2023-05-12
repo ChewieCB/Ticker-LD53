@@ -30,7 +30,9 @@ func _ready() -> void:
 	for zone in pickup_zones:
 		zone.activated.connect(new_delivery)
 	#
-	ShiftManager.shift_finished.connect(clear_delivery)
+	await get_tree().root.get_child(get_tree().root.get_child_count()-1).ready
+	var shift_manager = get_tree().get_first_node_in_group("managers/shift")
+	shift_manager.shift_finished.connect(clear_delivery)
 
 # TODO - move to utils v
 

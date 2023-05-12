@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_dxga8")
-time = 120
-goal = 600
+time = 60
+goal = 0
 intro_dialog = ExtResource("1_1hmjw")

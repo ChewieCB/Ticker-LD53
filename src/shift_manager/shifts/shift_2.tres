@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Shift" load_steps=2 format=3 uid="uid://coaklk10epsvc"]
+[gd_resource type="Resource" script_class="Shift" load_steps=3 format=3 uid="uid://to16jusmuset"]
 
+[ext_resource type="Resource" uid="uid://cfv6dgsi5t0m5" path="res://src/levels/0_testbed/cutscene_dialog_resources/1_zorg_intro/0_zorg_intro.tres" id="1_75u0x"]
 [ext_resource type="Script" path="res://src/shift_manager/shift.gd" id="1_rh1ic"]
 
 [resource]
 script = ExtResource("1_rh1ic")
-time = 120
-goal = 1400
+time = 60
+goal = 0
+intro_dialog = ExtResource("1_75u0x")

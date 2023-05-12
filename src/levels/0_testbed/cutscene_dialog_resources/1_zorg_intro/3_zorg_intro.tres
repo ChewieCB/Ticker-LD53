@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://c1ssxdjspqbs8"]
+
+[ext_resource type="Texture2D" uid="uid://cyjipkdv2rdqq" path="res://src/delivery/info_icons/zorg.png" id="1_77j4n"]
+[ext_resource type="Script" path="res://src/ui/main_ui/dialog_box/dialog_resource.gd" id="2_shia7"]
+
+[resource]
+script = ExtResource("2_shia7")
+type = 0
+portrait = ExtResource("1_77j4n")
+head_text = "Incoming Message"
+subhead_text = "Welcome to Zorg!"
+body_text = "Welcome again to the Zorg family!"
+auto_fade = false
+auto_fade_after = 2
+is_paused = true
+reward = 0
