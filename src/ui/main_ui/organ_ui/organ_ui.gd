@@ -50,6 +50,7 @@ func _ready():
 
 
 func hide_status():
+	delivery = null
 	animation_player.play("hide_status")
 
 
@@ -59,7 +60,6 @@ func damage_organ():
 		# TODO - make this dependent on speed and organ fragility
 		delivery.current_organ_quality -= 0.1
 		update_organ_ui()
-		await animation_player.animation_finished
 
 
 func update_organ_ui():
@@ -106,7 +106,8 @@ func swap_palette(new_color_palette):
 
 func set_delivery(value):
 	delivery = value
-	icon.texture = delivery.organ.icon
-	update_organ_ui()
-	animation_player.play("show_status")
+	if delivery:
+		icon.texture = delivery.organ.icon
+		update_organ_ui()
+		animation_player.play("show_status")
 

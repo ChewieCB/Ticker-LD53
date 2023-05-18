@@ -138,7 +138,7 @@ starting_state = NodePath("Movement/Idle")
 
 [node name="Movement" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "accelerate_state", "braking_state", "reverse_state", "crash_state")]
 script = ExtResource("3_hy4ei")
-engine_power = 600
+engine_power = 450
 max_speed_reverse = 45
 wheel_base = 35
 steering_angle_high = 75
