@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnrg586wt1f35"]
+[gd_scene load_steps=12 format=3 uid="uid://dnrg586wt1f35"]
 
 [ext_resource type="Script" path="res://src/ui/main_ui/organ_ui/organ_ui.gd" id="1_1n03x"]
 [ext_resource type="Texture2D" uid="uid://80yao4blh6lp" path="res://src/ui/main_ui/dialog_box/sprites/frame/frame.png" id="1_f0kuc"]
@@ -99,10 +99,64 @@ tracks/1/keys = {
 "values": [130, 0]
 }
 
+[sub_resource type="Animation" id="Animation_gpy0o"]
+resource_name = "shake"
+length = 0.325
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.325),
+"transitions": PackedFloat32Array(1, 1.6245),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.325),
+"transitions": PackedFloat32Array(0.450625, 1.27456, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer:theme_override_constants/margin_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.1, 0.125, 0.15, 0.225, 0.275, 0.325),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 16, 0, 0, 16, 0, 0, 16, 8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:theme_override_constants/margin_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.1, 0.15, 0.175, 0.225, 0.325),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, 24, null, null, 24, null, null]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p1w3g"]
 _data = {
 "default": SubResource("Animation_of6qp"),
 "hide_status": SubResource("Animation_7uca8"),
+"shake": SubResource("Animation_gpy0o"),
 "show_status": SubResource("Animation_1g8qp")
 }
 
@@ -127,10 +181,10 @@ anchor_bottom = 0.5
 offset_left = -64.0
 offset_top = -64.0
 offset_right = 64.0
-offset_bottom = 64.0
+offset_bottom = 64.0003
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 0
+theme_override_constants/margin_left = 8
 
 [node name="Frame" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2

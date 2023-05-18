@@ -21,6 +21,7 @@ var delivery_queue: Array[Delivery] = []
 
 
 func _ready() -> void:
+	add_to_group("managers/delivery")
 	# Load the resources
 	organs = _load_resources("res://src/delivery/organs/resources/")
 	recipients = _load_resources("res://src/characters/npcs/resources/")

@@ -7,7 +7,7 @@ extends Control
 @onready var animation_player = $AnimationPlayer
 
 enum HEALTH_COLORS {HEALTHY, BRUISED, DAMAGED, RUPTURED, DESTROYED}
-const health_text = ["Healthy", "Bruised", "Damaged", "Ruptured", "Destroyed"]
+const health_text = ["Healthy", "Bruised", "Damaged", "Ruptured", "Ruined"]
 const color_palettes = [
 	# Healthy
 	[
@@ -41,7 +41,7 @@ const color_palettes = [
 	],
 ]
 
-var delivery = Delivery:
+var delivery: Delivery:
 	set = set_delivery
 
 
@@ -53,6 +53,29 @@ func hide_status():
 	animation_player.play("hide_status")
 
 
+func damage_organ():
+	if delivery:
+		animation_player.play("shake")
+		# TODO - make this dependent on speed and organ fragility
+		delivery.current_organ_quality -= 0.1
+		update_organ_ui()
+		await animation_player.animation_finished
+
+
+func update_organ_ui():
+		var organ_health_idx = get_organ_health_map(delivery.current_organ_quality)
+		var organ_palette = color_palettes[organ_health_idx]
+		swap_palette(organ_palette)
+		organ_name.text = "[center][color=#{0}]{1}[/color][/center]".format([
+			get_color_hex(organ_palette[2]),
+			delivery.organ.name
+		])
+		organ_health.text = "[center][color=#{0}]{1}[/color][/center]".format([
+			get_color_hex(organ_palette[2]),
+			health_text[organ_health_idx]
+		])
+
+
 func get_organ_health_map(health: float) -> HEALTH_COLORS:
 	if health > 0.75:
 		return HEALTH_COLORS.HEALTHY
@@ -60,7 +83,7 @@ func get_organ_health_map(health: float) -> HEALTH_COLORS:
 		return HEALTH_COLORS.BRUISED
 	elif health < 0.5 and health > 0.25:
 		return HEALTH_COLORS.DAMAGED
-	elif health < 0.25:
+	elif health < 0.25 and health > 0:
 		return HEALTH_COLORS.RUPTURED
 	else:
 		return HEALTH_COLORS.DESTROYED
@@ -84,18 +107,6 @@ func swap_palette(new_color_palette):
 func set_delivery(value):
 	delivery = value
 	icon.texture = delivery.organ.icon
-	# Update the colour palette
-	var organ_health_idx = get_organ_health_map(delivery.current_organ_quality)
-	var organ_palette = color_palettes[organ_health_idx]
-	swap_palette(organ_palette)
-	organ_name.text = "[center][color=#{0}]{1}[/color][/center]".format([
-		get_color_hex(organ_palette[2]),
-		delivery.organ.name
-	])
-	organ_health.text = "[center][color=#{0}]{1}[/color][/center]".format([
-		get_color_hex(organ_palette[2]),
-		health_text[organ_health_idx]
-	])
-	
+	update_organ_ui()
 	animation_player.play("show_status")
 

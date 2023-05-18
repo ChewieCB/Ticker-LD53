@@ -181,4 +181,6 @@ func handle_collisions(velocity, delta):
 
 func crash() -> void:
 	is_crashed = true
+	# TODO - factor in crash speed and organ fragility
+	get_tree().call_group("ui/organ", "damage_organ")
 
