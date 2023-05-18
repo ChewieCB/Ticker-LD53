@@ -5,6 +5,8 @@ extends BaseState
 # Child states can override this states's functions or change its properties
 # This keeps the logic grouped in one location
 
+signal crashed
+
 @export_group("Rendering")
 @export var is_exhaust_visible: bool = false
 
@@ -27,11 +29,13 @@ extends BaseState
 @export var traction_fast = 0.1  # High-speed traction
 @export var traction_slow = 0.7  # Low-speed traction
 @export_subgroup("Steering")
-@export var wheel_base = 45
+@export var wheel_base = 34
 @export var steering_angle_high = 65
 @export var steering_angle_low = 30
 @export_subgroup("Collision Behaviour")
 @export var bounce_speed = 150 # Speed at which collisions cause the player to bounce off
+@export var crash_friction_factor: int = 10 # How much friction increases during the crashed state
+@export var crash_hang_time: float = 0.4 # How long the player loses control upon a crash
 
 var steering_angle = steering_angle_low
 var steer_direction
@@ -48,6 +52,7 @@ var steering_dot_prod
 @export var crash_state: MoveState
 
 var input_vector: Vector2
+var is_crashed: bool = false
 
 
 func _ready():
@@ -58,6 +63,8 @@ func _ready():
 		braking_state = parent.braking_state
 		reverse_state = parent.reverse_state
 		crash_state = parent.crash_state
+	
+	crashed.connect(crash)
 
 
 func enter():
@@ -68,22 +75,13 @@ func physics_process(delta: float) -> BaseState:
 	acceleration = Vector2.ZERO
 	
 	var input_vector = get_input()
+	
 	apply_friction()
 	calculate_steering(delta)
 	
-	# Rotate to move up instead of right
 	actor.velocity += acceleration * delta
 	
-#	# If we're going fast, bounce off the wall
-#	if actor.velocity.length() > bounce_speed:
-#		var collision = actor.move_and_collide(actor.velocity * delta)
-#		if collision:
-#			# Turn off the engine for a second
-#			actor.velocity = actor.velocity.bounce(collision.get_normal()) * 0.6
-#			return crash_state
-#	else:
-#		# Otherwise move normally
-	actor.move_and_slide()
+	handle_collisions(actor.velocity, delta)
 	
 	return null
 
@@ -93,7 +91,7 @@ func get_input() -> Vector2:
 		"turn_right", "turn_left", 
 		"decelerate", "accelerate"
 	)
-	
+		
 	var turn = Input.get_action_strength("turn_right") - Input.get_action_strength("turn_left")
 	steer_angle = turn * deg_to_rad(steering_angle)
 	
@@ -164,3 +162,23 @@ func calculate_steering(delta):
 		actor.velocity = -new_heading * min(actor.velocity.length(), max_speed_reverse)
 	
 	actor.rotation = new_heading.angle()
+
+
+func handle_collisions(velocity, delta):
+	# If we're going fast, bounce off the wall 
+	if velocity.length() > bounce_speed:
+		var collision = actor.move_and_collide(velocity * delta)
+		if collision:
+			# Turn off the engine for a second
+			var test0 = collision.get_normal()
+			var test1 = velocity.bounce(collision.get_normal())
+			actor.velocity = velocity.bounce(collision.get_normal()) * 1.4
+			emit_signal("crashed")
+	else:
+		actor.velocity = velocity
+	actor.move_and_slide()
+
+
+func crash() -> void:
+	is_crashed = true
+

@@ -19,10 +19,9 @@ func _ready():
 
 func start_shift():
 	shift = PlayerManager.global_shift_array.pop_front()
-	
+	# UI
 	shift_timer.set_timer(shift.time)
 	shift_transition_ui.start_shift()
-	
 	# Trigger the initial cutscene messages
 	if shift.intro_dialog:
 		var dialog_ui = get_tree().get_first_node_in_group("ui/dialog")
