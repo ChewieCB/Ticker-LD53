@@ -82,7 +82,7 @@ func complete_delivery(last_zone: DeliveryZone) -> void:
 	# Update dialog UI
 	var completion_dialog = delivery.end_delivery()
 	get_tree().call_group("ui/dialog", "new_dialog", completion_dialog)
-	get_tree().call_group("ui/cash", "add_reward", delivery.reward)
+	get_tree().call_group("ui/cash", "add_reward", delivery.reward * delivery.current_organ_quality)
 	# Update last used values
 	last_used_organ = delivery.organ
 	last_used_recipient = delivery.recipient

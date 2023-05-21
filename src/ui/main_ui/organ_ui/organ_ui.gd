@@ -54,12 +54,15 @@ func hide_status():
 	animation_player.play("hide_status")
 
 
-func damage_organ():
+func damage_organ(speed: float):
 	if delivery:
-		animation_player.play("shake")
-		# TODO - make this dependent on speed and organ fragility
-		delivery.current_organ_quality -= 0.1
-		update_organ_ui()
+		if delivery.current_organ_quality > 0:
+			animation_player.play("shake")
+			var damage = speed / delivery.organ.fragility / 1500
+			delivery.current_organ_quality -= damage
+			update_organ_ui()
+		else:
+			animation_player.play("shake_no_flash")
 
 
 func update_organ_ui():
