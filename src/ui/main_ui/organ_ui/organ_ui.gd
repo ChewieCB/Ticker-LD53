@@ -50,8 +50,11 @@ func _ready():
 
 
 func hide_status():
-	delivery = null
-	animation_player.play("hide_status")
+	if delivery:
+		if animation_player.is_playing():
+			await animation_player.animation_finished
+		delivery = null
+		animation_player.play("hide_status")
 
 
 func damage_organ(speed: float):
@@ -59,13 +62,14 @@ func damage_organ(speed: float):
 		if delivery.current_organ_quality > 0:
 			animation_player.play("shake")
 			var damage = speed / delivery.organ.fragility / 1500
-			delivery.current_organ_quality -= damage
+			delivery.take_damage(damage)
 			update_organ_ui()
 		else:
 			animation_player.play("shake_no_flash")
 
 
 func update_organ_ui():
+	if delivery:
 		var organ_health_idx = get_organ_health_map(delivery.current_organ_quality)
 		var organ_palette = color_palettes[organ_health_idx]
 		swap_palette(organ_palette)

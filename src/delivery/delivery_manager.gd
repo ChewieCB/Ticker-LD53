@@ -71,6 +71,7 @@ func new_delivery(pickup_zone: DeliveryZone = null) -> void:
 	var _recipient = next_recipient()
 #	var _pickup_location = next_zone()
 	var delivery = generate_delivery(pickup_location, _organ, _recipient)
+	delivery.organ_destroyed.connect(fail_delivery)
 	update_delivery_queue(delivery)
 	#
 	get_tree().call_group("ui/organ", "set_delivery", delivery)
@@ -90,8 +91,29 @@ func complete_delivery(last_zone: DeliveryZone) -> void:
 	# Get a new pickup location
 	var new_pickup = next_pickup()
 	new_pickup.is_active = true
-	#
 	get_tree().call_group("ui/organ", "hide_status")
+	
+
+
+func fail_delivery() -> void:
+	var delivery = delivery_queue.pop_front()
+	delivery.drop_off_location.is_active = false
+	# Update dialog UI
+	var completion_dialog = Dialog.new()
+	completion_dialog.type = Dialog.DIALOG_TYPE.FAIL
+	completion_dialog.portrait = load("res://src/delivery/info_icons/flux.png")
+	completion_dialog.body_text = "Organ destroyed, a fee of [color=red]${penalty}[/color] has been deducted.".format(
+		{"penalty": delivery.organ.min_value}
+	)
+	get_tree().call_group("ui/dialog", "new_dialog", completion_dialog)
+	get_tree().call_group("ui/cash", "add_reward", -delivery.organ.min_value)
+	# Update last used values
+	last_used_organ = delivery.organ
+	last_used_recipient = delivery.recipient
+	last_used_delivery_zone = delivery.drop_off_location
+	# Get a new pickup location
+	var new_pickup = next_pickup()
+	new_pickup.is_active = true
 
 
 func clear_delivery() -> void:
