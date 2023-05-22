@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Shift" load_steps=2 format=3 uid="uid://dikrfeu556eg1"]
+
+[ext_resource type="Script" path="res://src/shift_manager/shift.gd" id="2_x15og"]
+
+[resource]
+script = ExtResource("2_x15og")
+time = 300
+goal = 0

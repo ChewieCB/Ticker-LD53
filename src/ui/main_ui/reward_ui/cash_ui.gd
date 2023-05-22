@@ -31,13 +31,17 @@ func format_cash_value(value: int) -> String:
 	# Add the minus back in
 	if is_negative:
 		# FIXME - not adding minus
-		string.insert(0, "-")
+		string = string.insert(0, "-")
 	return "[center][color=yellow]{0}[/color][/center]".format([string])
 
 
 func format_cash_diff_value(value: int) -> String:
 	var string = str(value)
+	var is_negative = string.begins_with("-")
+	var sign = "-" if is_negative else "+"
+	if is_negative:
+		string = string.trim_prefix("-")
 	for idx in range(0, len(string), 3):
 		if idx !=0:
 			string = string.insert(len(string)-idx, ",")
-	return "[right][color=green]+${0}[/color][/right]".format([string])
+	return "[right][color=green]{0}${1}[/color][/right]".format([sign, string])

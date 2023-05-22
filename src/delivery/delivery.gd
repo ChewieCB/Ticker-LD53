@@ -1,6 +1,8 @@
 extends Resource
 class_name Delivery
 
+signal organ_destroyed
+
 var pickup_location: DeliveryZone
 var drop_off_location: DeliveryZone
 var organ: Organ
@@ -12,12 +14,13 @@ var organ_goal_quality: float
 var organ_degredation_rate: float
 var reward: int
 var recipient: Recipient
+var completed: bool
 
 
 func _init(
 		p_pickup_location = null, p_drop_off_location = null, p_organ = null, 
-		p_organ_starting_quality = randf_range(0, 1), p_organ_goal_quality = 0.5, p_organ_degredation_rate = 0.0,
-		p_reward = 0, p_recipient = null
+		p_organ_starting_quality = randf_range(0.75, 1), p_organ_goal_quality = 0.5, p_organ_degredation_rate = 0.0,
+		p_reward = 0, p_recipient = null, p_completed = false
 	):
 	pickup_location = p_pickup_location
 	drop_off_location = p_drop_off_location
@@ -27,6 +30,7 @@ func _init(
 	organ_degredation_rate = p_organ_degredation_rate
 	reward = p_reward
 	recipient = p_recipient
+	completed = p_completed
 
 
 func start_delivery() -> void:
@@ -37,11 +41,12 @@ func start_delivery() -> void:
 
 
 func end_delivery() -> Dialog:
+	completed = true
 	randomize()
 	# Generate dialog
 	var dialog = Dialog.new()
 	dialog.portrait = recipient.portrait
-	if current_organ_quality > organ_goal_quality - 25:
+	if current_organ_quality > organ_goal_quality - 0.25:
 		dialog.type = Dialog.DIALOG_TYPE.SUCCESS
 	else:
 		dialog.type = Dialog.DIALOG_TYPE.FAIL
@@ -58,5 +63,9 @@ func end_delivery() -> Dialog:
 
 
 func take_damage(amount: float):
-	current_organ_quality -= amount
+	if not completed:
+		current_organ_quality -= amount
+		current_organ_quality = clamp(current_organ_quality, 0, 1)
+		if current_organ_quality == 0:
+			emit_signal("organ_destroyed")
 
