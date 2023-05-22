@@ -114,6 +114,7 @@ func fail_delivery() -> void:
 	# Get a new pickup location
 	var new_pickup = next_pickup()
 	new_pickup.is_active = true
+	get_tree().call_group("ui/organ", "hide_status")
 
 
 func clear_delivery() -> void:
